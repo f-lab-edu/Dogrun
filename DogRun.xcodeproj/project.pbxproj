@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0C3F68C82C50F41FF61EA2E /* Pods_DogRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */; };
+		EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */; };
+		EC1DEE1E2B48D9BA00E8F4E2 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1DEE1D2B48D9BA00E8F4E2 /* SettingViewCell.swift */; };
+		EC3ACFF62B4AA3D2007EE9BA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3ACFF52B4AA3D2007EE9BA /* UserInfo.swift */; };
+		EC3ACFF92B4B6AC6007EE9BA /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3ACFF82B4B6AC6007EE9BA /* Util.swift */; };
+		EC3CFAE62B45E92500D0F1A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CFAE52B45E92500D0F1A2 /* HomeViewController.swift */; };
+		EC7631C82B471A8D0070378C /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7631C72B471A8D0070378C /* UserInfoViewController.swift */; };
+		EC7631CA2B471AA20070378C /* DogInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7631C92B471AA20070378C /* DogInfoViewController.swift */; };
+		EC7631CC2B471AF40070378C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7631CB2B471AF40070378C /* WelcomeViewController.swift */; };
+		EC7631CE2B471B160070378C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7631CD2B471B160070378C /* SettingViewController.swift */; };
+		EC7631D02B471E600070378C /* AlarmSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7631CF2B471E600070378C /* AlarmSettingViewController.swift */; };
+		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
+		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
+		ECC50A562B44CF7400028428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* ViewController.swift */; };
+		ECC50A592B44CF7400028428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A572B44CF7400028428 /* Main.storyboard */; };
+		ECC50A5B2B44CF7800028428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A5A2B44CF7800028428 /* Assets.xcassets */; };
+		ECC50A5E2B44CF7800028428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A5C2B44CF7800028428 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3DBB6D9B1FB7E0704E56EF57 /* Pods-DogRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.debug.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.debug.xcconfig"; sourceTree = "<group>"; };
+		4812423D31EF09C7A0B03200 /* Pods-DogRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.release.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.release.xcconfig"; sourceTree = "<group>"; };
+		A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EC1DEE1D2B48D9BA00E8F4E2 /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
+		EC3ACFF52B4AA3D2007EE9BA /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EC3ACFF82B4B6AC6007EE9BA /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogRun.entitlements; sourceTree = "<group>"; };
+		EC3CFAE52B45E92500D0F1A2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC7631C72B471A8D0070378C /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		EC7631C92B471AA20070378C /* DogInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfoViewController.swift; sourceTree = "<group>"; };
+		EC7631CB2B471AF40070378C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		EC7631CD2B471B160070378C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		EC7631CF2B471E600070378C /* AlarmSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewController.swift; sourceTree = "<group>"; };
+		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECC50A512B44CF7400028428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECC50A532B44CF7400028428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ECC50A552B44CF7400028428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECC50A582B44CF7400028428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECC50A5A2B44CF7800028428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECC50A5D2B44CF7800028428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECC50A5F2B44CF7800028428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECC50A4B2B44CF7400028428 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C3F68C82C50F41FF61EA2E /* Pods_DogRun.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DB291EF2D25C53496A613E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DBB6D9B1FB7E0704E56EF57 /* Pods-DogRun.debug.xcconfig */,
+				4812423D31EF09C7A0B03200 /* Pods-DogRun.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6D9070D74ABE17DEF8069188 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC1DEE1C2B48D9A800E8F4E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC1DEE1D2B48D9BA00E8F4E2 /* SettingViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC3ACFF42B4AA3BF007EE9BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC3ACFF52B4AA3D2007EE9BA /* UserInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC3ACFF72B4B694D007EE9BA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EC3ACFF82B4B6AC6007EE9BA /* Util.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EC7631D22B4722510070378C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EC3CFAE52B45E92500D0F1A2 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EC7631D32B4722610070378C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EC1DEE1C2B48D9A800E8F4E2 /* View */,
+				EC7631CF2B471E600070378C /* AlarmSettingViewController.swift */,
+				EC7631CD2B471B160070378C /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		EC7631D52B4722B80070378C /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				EC7631C72B471A8D0070378C /* UserInfoViewController.swift */,
+				EC7631C92B471AA20070378C /* DogInfoViewController.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		ECC50A452B44CF7400028428 = {
+			isa = PBXGroup;
+			children = (
+				ECC50A502B44CF7400028428 /* DogRun */,
+				ECC50A4F2B44CF7400028428 /* Products */,
+				0DB291EF2D25C53496A613E5 /* Pods */,
+				6D9070D74ABE17DEF8069188 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ECC50A4F2B44CF7400028428 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECC50A4E2B44CF7400028428 /* DogRun.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECC50A502B44CF7400028428 /* DogRun */ = {
+			isa = PBXGroup;
+			children = (
+				EC3ACFF72B4B694D007EE9BA /* Utils */,
+				EC3ACFF42B4AA3BF007EE9BA /* Models */,
+				EC7631D52B4722B80070378C /* UserInfo */,
+				EC7631D32B4722610070378C /* Setting */,
+				EC7631D22B4722510070378C /* Home */,
+				EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */,
+				ECC50A512B44CF7400028428 /* AppDelegate.swift */,
+				ECC50A532B44CF7400028428 /* SceneDelegate.swift */,
+				ECC50A552B44CF7400028428 /* ViewController.swift */,
+				ECC50A572B44CF7400028428 /* Main.storyboard */,
+				ECC50A5A2B44CF7800028428 /* Assets.xcassets */,
+				ECC50A5C2B44CF7800028428 /* LaunchScreen.storyboard */,
+				EC7631CB2B471AF40070378C /* WelcomeViewController.swift */,
+				ECC50A5F2B44CF7800028428 /* Info.plist */,
+				EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */,
+			);
+			path = DogRun;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECC50A4D2B44CF7400028428 /* DogRun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECC50A622B44CF7800028428 /* Build configuration list for PBXNativeTarget "DogRun" */;
+			buildPhases = (
+				54D48DA95E413499C279A10F /* [CP] Check Pods Manifest.lock */,
+				ECC50A4A2B44CF7400028428 /* Sources */,
+				ECC50A4B2B44CF7400028428 /* Frameworks */,
+				ECC50A4C2B44CF7400028428 /* Resources */,
+				F6714E1CE6432AAC8764BB53 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DogRun;
+			productName = DogRun;
+			productReference = ECC50A4E2B44CF7400028428 /* DogRun.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECC50A462B44CF7400028428 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					ECC50A4D2B44CF7400028428 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = ECC50A492B44CF7400028428 /* Build configuration list for PBXProject "DogRun" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECC50A452B44CF7400028428;
+			productRefGroup = ECC50A4F2B44CF7400028428 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECC50A4D2B44CF7400028428 /* DogRun */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECC50A4C2B44CF7400028428 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECC50A5E2B44CF7800028428 /* LaunchScreen.storyboard in Resources */,
+				EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */,
+				ECC50A5B2B44CF7800028428 /* Assets.xcassets in Resources */,
+				ECC50A592B44CF7400028428 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54D48DA95E413499C279A10F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DogRun-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6714E1CE6432AAC8764BB53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DogRun/Pods-DogRun-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DogRun/Pods-DogRun-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DogRun/Pods-DogRun-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECC50A4A2B44CF7400028428 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECC50A562B44CF7400028428 /* ViewController.swift in Sources */,
+				ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */,
+				EC7631C82B471A8D0070378C /* UserInfoViewController.swift in Sources */,
+				EC7631CE2B471B160070378C /* SettingViewController.swift in Sources */,
+				ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */,
+				EC3CFAE62B45E92500D0F1A2 /* HomeViewController.swift in Sources */,
+				EC7631CA2B471AA20070378C /* DogInfoViewController.swift in Sources */,
+				EC3ACFF92B4B6AC6007EE9BA /* Util.swift in Sources */,
+				EC7631CC2B471AF40070378C /* WelcomeViewController.swift in Sources */,
+				EC7631D02B471E600070378C /* AlarmSettingViewController.swift in Sources */,
+				EC3ACFF62B4AA3D2007EE9BA /* UserInfo.swift in Sources */,
+				EC1DEE1E2B48D9BA00E8F4E2 /* SettingViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ECC50A572B44CF7400028428 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECC50A582B44CF7400028428 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECC50A5C2B44CF7800028428 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECC50A5D2B44CF7800028428 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECC50A602B44CF7800028428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECC50A612B44CF7800028428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECC50A632B44CF7800028428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DBB6D9B1FB7E0704E56EF57 /* Pods-DogRun.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DogRun/DogRun.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6TZ92V5LSX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DogRun/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gglee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECC50A642B44CF7800028428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4812423D31EF09C7A0B03200 /* Pods-DogRun.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DogRun/DogRun.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6TZ92V5LSX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DogRun/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gglee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECC50A492B44CF7400028428 /* Build configuration list for PBXProject "DogRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECC50A602B44CF7800028428 /* Debug */,
+				ECC50A612B44CF7800028428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECC50A622B44CF7800028428 /* Build configuration list for PBXNativeTarget "DogRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECC50A632B44CF7800028428 /* Debug */,
+				ECC50A642B44CF7800028428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECC50A462B44CF7400028428 /* Project object */;
+}
