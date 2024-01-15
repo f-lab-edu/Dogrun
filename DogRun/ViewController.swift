@@ -11,6 +11,7 @@ import UIKit
 import SnapKit
 import AuthenticationServices
 import Alamofire
+import OSLog
 
 class ViewController: UIViewController {
     
@@ -22,8 +23,8 @@ class ViewController: UIViewController {
     override func viewDidLoad(){
        super.viewDidLoad()
         
-       self.makeView()
-       self.initView()
+       makeView()
+       initView()
     }
     
     private func makeView(){
@@ -31,18 +32,21 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .white
         [logoImageView, welcomeLabel, btnAppleLogin].forEach({view.addSubview($0)})
 
+        // 로고 이미지 뷰
         self.logoImageView.snp.makeConstraints({
             $0.width.equalTo(50)
             $0.height.equalTo(50)
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().multipliedBy(0.80)
         })
-
+        
+        // 서비스 라벨
         self.welcomeLabel.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(30)
             $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
         })
-
+        
+        // 애플로그인 버튼
         self.btnAppleLogin.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.top.equalTo(self.welcomeLabel.snp.bottom).offset(60)
@@ -51,23 +55,56 @@ class ViewController: UIViewController {
     }
     
     private func initView(){
-        self.logoImageView.image = UIImage(named: "logo")
-        self.logoImageView.tintColor = .systemGray
+        
+        logoImageView.image = UIImage(named: "logo")
+        logoImageView.tintColor = .systemGray
         self.logoImageView.contentMode = .scaleAspectFit
         
-        self.welcomeLabel.numberOfLines = 0
-        self.welcomeLabel.textAlignment = .center
-        self.welcomeLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-        self.welcomeLabel.text = "DogRun"
-        self.welcomeLabel.textColor = .label
+        welcomeLabel.numberOfLines = 0
+        welcomeLabel.textAlignment = .center
+        welcomeLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        welcomeLabel.text = "DogRun"
+        welcomeLabel.textColor = .label
 
-        self.btnAppleLogin.layer.cornerRadius = 25
-        self.btnAppleLogin.backgroundColor = .white
-        self.btnAppleLogin.layer.borderWidth = 0.5
-        self.btnAppleLogin.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+        btnAppleLogin.layer.cornerRadius = 25
+        btnAppleLogin.backgroundColor = .white
+        btnAppleLogin.layer.borderWidth = 0.5
+        btnAppleLogin.addTarget(self, action: #selector(clickAppleLogin), for: .touchUpInside)
     }
     
-    @objc func handleAuthorizationAppleIDButtonPress() {
+    // 데이터 저장
+    private func saveData(_ loginData: ResponseLoginData, _ lable: String){
+        
+        let valueToSave = loginData.data
+        UserDefaults.standard.set(valueToSave, forKey: lable)
+    }
+    
+    // 화면 분기처리 이동
+    private func moveToNext(_ responseCode: Int){
+        
+        if let status = ResponseStatus(rawValue: responseCode) {
+            
+            switch status {
+                
+                case .alreadyRegistered:
+                    // 이미 가입된 계정일 경우 - 홈 이동
+                    // 홈화면 이동
+                     let homeView = HomeViewController()
+                     self.navigationController?.setViewControllers([homeView], animated: true)
+                case .firstTimeRegistered:
+                    // 첫 가입된 계정일때 - 회원정보 입력
+                     let userInfoView = UserInfoViewController()
+                     self.navigationController?.setViewControllers([userInfoView], animated: true)
+                case .unknownError:
+                os_log("Unknown login error",log:.debug)
+                }
+        } else {
+            os_log("Unknown response status: \(responseCode)",log:.debug)
+        }
+    }
+    
+    // 애플로그인 버튼 클릭
+    @objc func clickAppleLogin() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -80,64 +117,46 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ASAuthorizationControllerDelegate {
-    
     // Apple ID 연동 성공 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-            // Apple ID
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
+
             // login url
-            let apiUrl = "\(Util.baseUrl)/signIn?uid=\(userIdentifier)&name=\(fullName)&email=\(email)"
+            let baseUrl = String(NSLocalizedString("baseUrl", comment: "api request url"))
+            let apiUrl = "\(baseUrl)/signIn?uid=\(userIdentifier)&name=\(fullName)&email=\(email)"
+            
             // api 요청
             AF.request(apiUrl).responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    
                     do {
-                       // JSON data decoding (로그인 정보)
                         let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: response.data!)
-                        // userInfo 내부저장소 저장
-                        let valueToSave = responseData.data
-                        UserDefaults.standard.set(valueToSave, forKey: "userInfo")
-                       // code optional binding
                         guard let responseCode = responseData.code else { return }
-                        if responseCode == 253 {
-                            // 이미 가입된 계정일 경우 - 홈 이동
-                            // 홈화면 이동
-                            //let homeView = HomeViewController()
-                            //self.navigationController?.setViewControllers([homeView], animated: true)
-                        }else if responseCode == 256 {
-                            // 첫 가입된 계정일때 - 회원정보 입력
-                            //let userInfoView = UserInfoViewController()
-                            //self.navigationController?.setViewControllers([userInfoView], animated: true)
-                        }else{
-                            print("login error")
-                        }
+                        
+                        // 데이터 저장
+                        saveData(responseData, UserDefaultsKeys.userInfo)
+                        
+                        // 다음 화면 이동
+                        moveToNext(responseCode)
+                        
                     } catch {
-                       print("Error decoding JSON: \(error)")
+                        os_log("Error decoding JSON: \(error)",log:.debug)
                     }
                 case .failure(let error):
-                    print("API Error: \(error)")
+                    os_log("API Error: \(error)",log:.debug)
                 }
             }
-                default:
-                    break
         }
-    }
-    
-    // Apple ID 연동 실패 시
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) { 
+
     }
 }
-
 extension ViewController: ASAuthorizationControllerPresentationContextProviding {
     // 로그인 진행하는 화면 표출
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
 }
-
