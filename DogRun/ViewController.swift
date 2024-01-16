@@ -89,14 +89,14 @@ class ViewController: UIViewController {
                 case .alreadyRegistered:
                     // 이미 가입된 계정일 경우 - 홈 이동
                     // 홈화면 이동
-                     let homeView = HomeViewController()
-                     self.navigationController?.setViewControllers([homeView], animated: true)
+                    let homeView = HomeViewController()
+                    self.navigationController?.setViewControllers([homeView], animated: true)
                 case .firstTimeRegistered:
                     // 첫 가입된 계정일때 - 회원정보 입력
-                     let userInfoView = UserInfoViewController()
-                     self.navigationController?.setViewControllers([userInfoView], animated: true)
+                    let userInfoView = UserInfoViewController()
+                    self.navigationController?.setViewControllers([userInfoView], animated: true)
                 case .unknownError:
-                os_log("Unknown login error",log:.debug)
+                    os_log("Unknown login error",log:.debug)
                 }
         } else {
             os_log("Unknown response status: \(responseCode)",log:.debug)
