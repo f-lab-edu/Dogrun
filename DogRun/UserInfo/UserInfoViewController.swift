@@ -23,11 +23,12 @@ final class UserInfoViewController: UIViewController {
     private var selectArea: String?
     private lazy var selectedGender: String = ""
     
+    
     // 닉네임 필드
-    private let nicknameTextField: UITextField = UITextField.makeTextField(placeholder: String(NSLocalizedString("textfield_placehold_nickname", comment: "nickname")))
+    private let nicknameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfNickname.localized   )
 
     // 생년월일 필드
-    private let birthdateTextField: UITextField = UITextField.makeTextField(placeholder: String(NSLocalizedString("textfield_placehold_birth", comment: "birth"))), inputView: UIDatePicker())
+    private let birthdateTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.localized ), inputView: UIDatePicker())
 
     // 성별 세그먼트
     private let genderSegmentedControl = UISegmentedControl(items: genderArray)
@@ -36,10 +37,13 @@ final class UserInfoViewController: UIViewController {
     private let locationPickerView = UIPickerView()
     
     // 생년월일 datepicker
-    private let datePicker: UIDatePicker = UIDatePicker.makeCustomDatePicker(target: self, action: #selector(datePickerValueChanged(_:)))
+    private let datePicker = UIDatePicker.makeCustomDatePicker(target: self, action: #selector(datePickerValueChanged(_:)))
     
     // 양식 제출 버튼
-    private let btnSubmit: UIButton = UIButton.makeSubmitButton(target: self, action: #selector(submitResult), title: "완료")
+    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult), title: LocalizationKeys.btnConfirm.localized)
+    
+    var viewModel: UserInfoViewModel
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +56,11 @@ final class UserInfoViewController: UIViewController {
     }
     
     private func makeView() {
+        
+        
+        
         // 캡션 (닉네임)
-        captionNickname = UILabel.makeCaptionLabel(text: String(NSLocalizedString("label_nickname", comment: "nickname"))))
+        captionNickname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelName.localized))
         view.addSubview(captionNickname)
         captionNickname.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(LayoutConstants.topOffset)
@@ -69,7 +76,7 @@ final class UserInfoViewController: UIViewController {
         }
         
         // 캡션 (생년월일)
-        captionBirth = UILabel.makeCaptionLabel(text: String(NSLocalizedString("label_birth", comment: "birth")))
+        captionBirth = UILabel.makeCaptionLabel(text: LocalizationKeys.labelBirth.localized)
         view.addSubview(captionBirth)
         captionBirth.snp.makeConstraints {
             $0.top.equalTo(nicknameTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -85,7 +92,7 @@ final class UserInfoViewController: UIViewController {
         }
         
         // 캡션 (성별)
-        captionGender = UILabel.makeCaptionLabel(text: String(NSLocalizedString("label_gender", comment: "gender")))
+        captionGender = UILabel.makeCaptionLabel(text: LocalizationKeys.labelGender.localized)
         view.addSubview(captionGender)
         captionGender.snp.makeConstraints {
             $0.top.equalTo(birthdateTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -101,7 +108,7 @@ final class UserInfoViewController: UIViewController {
         }
         
         // 캡션 (지역)
-        captionArea = UILabel.makeCaptionLabel(text: String(NSLocalizedString("label_area", comment: "area")))
+        captionArea = UILabel.makeCaptionLabel(text: LocalizationKeys.labelArea.localized)
         view.addSubview(captionArea)
         captionArea.snp.makeConstraints {
             $0.top.equalTo(genderSegmentedControl.snp.bottom).offset(LayoutConstants.topOffset)
@@ -135,9 +142,9 @@ final class UserInfoViewController: UIViewController {
         guard let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo) else { return }
         
         // 닉네임, 성별, 지역 값
-        guard let nickName = nicknameTextField.text, !nickName.isEmpty else { showAlert(message: String(NSLocalizedString("textfield_alert_name", comment: "name"))); return  }
-        guard let birth = birthdateTextField.text,  !birth.isEmpty else {  showAlert(message: String(NSLocalizedString("textfield_alert_birth", comment: "birth"))); return   }
-        guard let area = selectArea, !area.isEmpty   else {  showAlert(message:String(NSLocalizedString("textfield_alert_area", comment: "area"))); return }
+        guard let nickName = nicknameTextField.text, !nickName.isEmpty else { showAlert(message: LocalizationKeys.alertName.localized); return  }
+        guard let birth = birthdateTextField.text,  !birth.isEmpty else {  showAlert(message: LocalizationKeys.alertBirth.localized); return   }
+        guard let area = selectArea, !area.isEmpty   else {  showAlert(message: LocalizationKeys.alertArea.localized); return }
          
         selectedGender = genderArray[genderSegmentedControl.selectedSegmentIndex]
         
@@ -154,8 +161,8 @@ final class UserInfoViewController: UIViewController {
     
     // 미기입 시 alert 생성
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: String(NSLocalizedString("alert_title", comment: "title")), message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: String(NSLocalizedString("alert_confirm", comment: "title")), style: .default, handler: nil)
+        let alert = UIAlertController(title: LocalizationKeys.alertTitle.localized, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: LocalizationKeys.alertConfirm.localized, style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
         // 경고창 표시 후 메소드 종료
@@ -169,28 +176,17 @@ final class UserInfoViewController: UIViewController {
     }
     
     private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String,){
+
+        let userEditInfo = UserInfo(userId: userId, nickName: nickName, birth: birth, area: area, selectedGender: self.selectedGender)
+
+        viewModel = UserInfoViewModel(userInfo: userEditInfo)
         
-        let baseUrl = String(NSLocalizedString("baseUrl", comment: "api request url"))
-        let apiUrl = "\(baseUrl)/UserEdit"
-        // 전송할 데이터를 담은 파라미터
-        let parameters: [String: Any] = [
-            "uid": userId,
-            "name": nickName,
-            "birth": birth,
-            "area": area,
-            "gender": selectedGender
-        ]
-        // api 요청
-        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                // code optional binding
-                guard let responseCode = responseData.code else { return }
-                
-                editCheck(responseCode)
-                
-            case .failure(let error):
+        viewModel.submitResult { [weak self] error in
+             
+            if let error = error {
                 print("API Error: \(error)")
+            } else {
+                self.editCheck()
             }
         }
     }
@@ -198,28 +194,25 @@ final class UserInfoViewController: UIViewController {
     // 화면 이동
     private func editCheck(_ responseCode: Int){
         
-        if responseCode == ResponseStatus.editUserInfo.rawValue {
+        guard let responseData = viewModel.responseData else { return }
+
+        if responseData.code == ResponseStatus.editUserInfo.rawValue {
             
             var userInfo = responseData.data
             
             do {
-                // JSON data decoding (로그인 정보)
-                let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: response.data!)
                 // UserInfo 인스턴스를 JSON 데이터로 인코딩
                 let encodedData = try JSONEncoder().encode(userInfo)
                 // JSON 데이터를 UserDefaults에 저장
                 UserDefaults.standard.set(encodedData, forKey: "userInfo")
-                // 화면 이동
-                //let homeView = HomeViewController()
-                //self.navigationController?.setViewControllers([homeView], animated: true)
             } catch {
                 print("Error encoding UserInfo: \(error)")
             }
+            
         } else {
             print("need to check error")
         }
     }
-    
 }
 extension UserInfoViewController: UIPickerViewDataSource{
     // UIPickerViewDataSource 구현
