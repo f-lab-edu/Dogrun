@@ -55,17 +55,26 @@ class ViewController: UIViewController {
     }
     
     private func initView(){
-        
+        initLogo()
+        initWelcomeLabel()
+        initBtnAppleLogin()
+    }
+    
+    private func initLogo(){
         logoImageView.image = UIImage(named: "logo")
         logoImageView.tintColor = .systemGray
         self.logoImageView.contentMode = .scaleAspectFit
-        
+    }
+    
+    private func initWelcomeLabel(){
         welcomeLabel.numberOfLines = 0
         welcomeLabel.textAlignment = .center
         welcomeLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         welcomeLabel.text = "DogRun"
         welcomeLabel.textColor = .label
+    }
 
+    private func initBtnAppleLogin() {
         btnAppleLogin.layer.cornerRadius = 25
         btnAppleLogin.backgroundColor = .white
         btnAppleLogin.layer.borderWidth = 0.5
@@ -81,25 +90,23 @@ class ViewController: UIViewController {
     
     // 화면 분기처리 이동
     private func moveToNext(_ responseCode: Int){
-        
-        if let status = ResponseStatus(rawValue: responseCode) {
-            
-            switch status {
-                
-                case .alreadyRegistered:
-                    // 이미 가입된 계정일 경우 - 홈 이동
-                    // 홈화면 이동
-                    let homeView = HomeViewController()
-                    self.navigationController?.setViewControllers([homeView], animated: true)
-                case .firstTimeRegistered:
-                    // 첫 가입된 계정일때 - 회원정보 입력
-                    let userInfoView = UserInfoViewController()
-                    self.navigationController?.setViewControllers([userInfoView], animated: true)
-                case .unknownError:
-                    os_log("Unknown login error",log:.debug)
-                }
-        } else {
-            os_log("Unknown response status: \(responseCode)",log:.debug)
+        guard let status = ResponseStatus(rawValue: responseCode) else {
+            os_log("Unknown response status: \(responseCode)", log: .debug)
+            return
+        }
+
+        switch status {
+            case .alreadyRegistered:
+                // 이미 가입된 계정일 경우 - 홈 이동
+                // 홈화면 이동
+                let homeView = HomeViewController()
+                self.navigationController?.setViewControllers([homeView], animated: true)
+            case .firstTimeRegistered:
+                // 첫 가입된 계정일때 - 회원정보 입력
+                let userInfoView = UserInfoViewController()
+                self.navigationController?.setViewControllers([userInfoView], animated: true)
+            case .unknownError:
+                os_log("Unknown login error", log: .debug)
         }
     }
     
