@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A0C3F68C82C50F41FF61EA2E /* Pods_DogRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */; };
 		EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */; };
+		EC8106FC2B5A4CDC006A2952 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FA2B5A4CDC006A2952 /* UserInfo.swift */; };
+		EC8106FD2B5A4CDC006A2952 /* ResponseLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FB2B5A4CDC006A2952 /* ResponseLoginData.swift */; };
 		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
 		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
 		ECC50A562B44CF7400028428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogRun.entitlements; sourceTree = "<group>"; };
+		EC8106FA2B5A4CDC006A2952 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EC8106FB2B5A4CDC006A2952 /* ResponseLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseLoginData.swift; sourceTree = "<group>"; };
 		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC50A512B44CF7400028428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC50A532B44CF7400028428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC8106F92B5A4CDC006A2952 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC8106FA2B5A4CDC006A2952 /* UserInfo.swift */,
+				EC8106FB2B5A4CDC006A2952 /* ResponseLoginData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		ECC50A452B44CF7400028428 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 		ECC50A502B44CF7400028428 /* DogRun */ = {
 			isa = PBXGroup;
 			children = (
+				EC8106F92B5A4CDC006A2952 /* Models */,
 				EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */,
 				ECC50A512B44CF7400028428 /* AppDelegate.swift */,
 				ECC50A532B44CF7400028428 /* SceneDelegate.swift */,
@@ -212,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8106FC2B5A4CDC006A2952 /* UserInfo.swift in Sources */,
 				ECC50A562B44CF7400028428 /* ViewController.swift in Sources */,
+				EC8106FD2B5A4CDC006A2952 /* ResponseLoginData.swift in Sources */,
 				ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */,
 				ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */,
 			);
