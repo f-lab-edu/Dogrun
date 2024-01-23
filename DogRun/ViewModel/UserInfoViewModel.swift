@@ -28,12 +28,14 @@ class UserInfoViewModel {
             "gender": userInfo.selectedGender
         ]
 
-        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            switch response.result {
+        
+        let request = AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        request.responseData { responseData in
+            switch responseData.result {
             case .success:
                 do {
-                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: response.data!)
-                    completion(responseData)
+                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: responseData.value!)
+//                    completion(responseData)
                 } catch {
                     self.error = error
                     completion(error)
@@ -44,5 +46,22 @@ class UserInfoViewModel {
                 completion(error)
             }
         }
+        
+//        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+//            switch response.result {
+//            case .success:
+//                do {
+//                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: response.data!)
+//                    completion(responseData)
+//                } catch {
+//                    self.error = error
+//                    completion(error)
+//                }
+//
+//            case .failure(let error):
+//                self.error = error
+//                completion(error)
+//            }
+//        }
     }
 }

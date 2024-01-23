@@ -10,6 +10,7 @@ import Alamofire
 import OSLog
 import SnapKit
 
+
 final class UserInfoViewController: UIViewController {
     
     let sidoArea = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"]
@@ -23,15 +24,14 @@ final class UserInfoViewController: UIViewController {
     private var selectArea: String?
     private lazy var selectedGender: String = ""
     
-    
     // 닉네임 필드
     private let nicknameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfNickname.localized   )
 
     // 생년월일 필드
-    private let birthdateTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.localized ), inputView: UIDatePicker())
+    private let birthdateTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.localized, inputView: UIDatePicker())
 
     // 성별 세그먼트
-    private let genderSegmentedControl = UISegmentedControl(items: genderArray)
+    private lazy var genderSegmentedControl = UISegmentedControl(items: genderArray)
     
     // 지역 picker
     private let locationPickerView = UIPickerView()
@@ -40,11 +40,10 @@ final class UserInfoViewController: UIViewController {
     private let datePicker = UIDatePicker.makeCustomDatePicker(target: self, action: #selector(datePickerValueChanged(_:)))
     
     // 양식 제출 버튼
-    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult), title: LocalizationKeys.btnConfirm.localized)
-    
-    var viewModel: UserInfoViewModel
-    
-    
+    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult))
+
+    var viewModel: UserInfoViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -52,7 +51,20 @@ final class UserInfoViewController: UIViewController {
         // UITapGestureRecognizer를 사용하여 화면 터치 이벤트를 감지
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
+        
+        
+        viewModel = UserInfoViewModel(userInfo: UserInfo(userId: "", nickName: "", birth: "", area: "", selectedGender: ""))
+        
+        
         makeView()
+        
+        refresh()
+    }
+    
+    private func refresh() {
+        guard let viewModel = viewModel else { return }
+        nicknameTextField.text = viewModel.userInfo.nickName
+        
     }
     
     private func makeView() {
@@ -60,7 +72,7 @@ final class UserInfoViewController: UIViewController {
         
         
         // 캡션 (닉네임)
-        captionNickname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelName.localized))
+        captionNickname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelName.localized)
         view.addSubview(captionNickname)
         captionNickname.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(LayoutConstants.topOffset)
@@ -175,26 +187,27 @@ final class UserInfoViewController: UIViewController {
         view.endEditing(true)
     }
     
-    private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String,){
+    private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String){
 
         let userEditInfo = UserInfo(userId: userId, nickName: nickName, birth: birth, area: area, selectedGender: self.selectedGender)
 
         viewModel = UserInfoViewModel(userInfo: userEditInfo)
         
-        viewModel.submitResult { [weak self] error in
+        viewModel?.submitResult { [weak self] error in
              
             if let error = error {
                 print("API Error: \(error)")
             } else {
-                self.editCheck()
+                self?.editCheck()
             }
+            self?.refresh()
         }
     }
     
     // 화면 이동
-    private func editCheck(_ responseCode: Int){
+    private func editCheck(){
         
-        guard let responseData = viewModel.responseData else { return }
+        guard let responseData = viewModel? .responseData else { return }
 
         if responseData.code == ResponseStatus.editUserInfo.rawValue {
             

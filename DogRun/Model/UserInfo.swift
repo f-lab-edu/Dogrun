@@ -5,7 +5,7 @@
 //  Created by 이규관 on 2024/01/18.
 //
 
-struct UserInfo {
+struct UserInfo: Codable {
     var userId: String
     var nickName: String
     var birth: String

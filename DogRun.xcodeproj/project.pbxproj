@@ -20,6 +20,7 @@
 		EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E72B5A4B25006A2952 /* ResponseStatus.swift */; };
 		EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */; };
 		EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */; };
+		EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */; };
 		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
 		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
 		ECC50A562B44CF7400028428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		EC8106E72B5A4B25006A2952 /* ResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
 		EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseLoginData.swift; sourceTree = "<group>"; };
 		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC50A512B44CF7400028428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC50A532B44CF7400028428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		EC8106E02B5A4B25006A2952 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */,
 				EC8106E12B5A4B25006A2952 /* UserInfo.swift */,
 			);
 			path = Model;
@@ -302,6 +305,7 @@
 				EC8106F32B5A4B25006A2952 /* LayoutConstants.swift in Sources */,
 				EC8106EE2B5A4B25006A2952 /* UIExtensions.swift in Sources */,
 				EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */,
+				EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */,
 				EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */,
 				EC8106F02B5A4B25006A2952 /* UserDefaultsKeys.swift in Sources */,
 				EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */,
