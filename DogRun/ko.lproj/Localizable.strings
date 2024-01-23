@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  DogRun
+
+  Created by 이규관 on 2024/01/16.
+  
+*/
+"baseUrl" = "http://3.39.6.94";
+
+
+// user-info edit
+"textfield_placehold_nickname" = "닉네임을 입력하세요";
+"textfield_placehold_birth" = "생년월일을 입력하세요";
+"btn_confirm" = "완료";
+"label_nickname" = "닉네임";
+"label_birth" = "생년월일";
+"label_gender" = "성별";
+"label_area" = "지역";
+"textfield_alert_name" = "이름을 입력해주세요";
+"textfield_alert_birth" = "생년월일을 입력해주세요";
+"textfield_alert_area" = "지역을 입력해주세요";
+"alert_title" = "알람";
+"alert_confirm" = "확인";
+
+
