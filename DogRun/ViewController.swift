@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     // 화면 분기처리 이동
     private func moveToNext(_ responseCode: Int){
         guard let status = ResponseStatus(rawValue: responseCode) else {
-            os_log("Unknown response status: \(responseCode)", log: .debug)
+          //  os_log("Unknown response status: \(responseCode)", log: .debug)
             return
         }
 
@@ -99,13 +99,17 @@ class ViewController: UIViewController {
             case .alreadyRegistered:
                 // 이미 가입된 계정일 경우 - 홈 이동
                 // 홈화면 이동
-                let homeView = HomeViewController()
-                self.navigationController?.setViewControllers([homeView], animated: true)
+               // let homeView = HomeViewController()
+               // self.navigationController?.setViewControllers([homeView], animated: true)
+                os_log("Unknown login error", log: .debug)
             case .firstTimeRegistered:
                 // 첫 가입된 계정일때 - 회원정보 입력
                 let userInfoView = UserInfoViewController()
                 self.navigationController?.setViewControllers([userInfoView], animated: true)
             case .unknownError:
+                os_log("Unknown login error", log: .debug)
+            
+            case .editUserInfo:
                 os_log("Unknown login error", log: .debug)
         }
     }
@@ -145,16 +149,16 @@ extension ViewController: ASAuthorizationControllerDelegate {
                         guard let responseCode = responseData.code else { return }
                         
                         // 데이터 저장
-                        saveData(responseData, UserDefaultsKeys.userInfo)
+                        self.saveData(responseData, UserDefaultsKeys.userInfo)
                         
                         // 다음 화면 이동
-                        moveToNext(responseCode)
+                        self.moveToNext(responseCode)
                         
                     } catch {
-                        os_log("Error decoding JSON: \(error)",log:.debug)
+                        os_log("Error decoding JSON:",log:.debug)
                     }
                 case .failure(let error):
-                    os_log("API Error: \(error)",log:.debug)
+                    os_log("API Error: ",log:.debug)
                 }
             }
         }
