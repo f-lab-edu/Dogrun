@@ -10,6 +10,7 @@ import Foundation
 struct LayoutConstants {
     static let leadingTrailingInset: CGFloat = 20
     static let topOffset: CGFloat = 20
+    static let bottomOffset: CGFloat = 20
     static let verticalSpacing: CGFloat = 8
     static let textFieldHeight: CGFloat = 40
     static let segmentedControlHeight: CGFloat = 30

@@ -8,7 +8,7 @@
 "baseUrl" = "http://3.39.6.94";
 
 
-// user-info edit
+// user-info view
 "textfield_placehold_nickname" = "닉네임을 입력하세요";
 "textfield_placehold_birth" = "생년월일을 입력하세요";
 "btn_confirm" = "완료";
@@ -21,3 +21,14 @@
 "textfield_alert_area" = "지역을 입력해주세요";
 "alert_title" = "알람";
 "alert_confirm" = "확인";
+
+
+// dog-info view
+"label_dog_name" = "팻 이름";
+"label_dog_breed" = "품종";
+"label_dog_age" = "나이";
+"label_dog_gender" = "성별";
+"label_dog_size" = "체형";
+
+"textfield_placehold_dog_name" = "펫 이름을 입력하세요";
+"textfield_placehold_dog_breed" = "견종을 입력하세요";

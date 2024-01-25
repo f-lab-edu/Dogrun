@@ -21,4 +21,14 @@ struct LocalizationKeys {
     static let alertTitle = "alert_title"
     static let alertConfirm = "alert_confirm"
     
+    // dog info
+    static let labelDogName = "label_dog_name"
+    static let labelDogBreed = "label_dog_breed"
+    static let labelDogAge = "label_dog_age"
+    static let labelDogGender = "label_dog_gender"
+    static let labelDogSize = "label_dog_size"
+    static let tfDogName = "textfield_placehold_dog_name"
+    static let tfDogBreed = "textfield_placehold_dog_breed"
+    
+    
 }

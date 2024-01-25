@@ -17,6 +17,6 @@ extension OSLog {
     static let error = OSLog(subsystem: subsystem, category: "Error")
     
     static func message(_ type: OSLogType, log: OSLog = .default, _ message: String) {
-//            os_log(type, log: log, message)
+        os_log(type, log: log, "%@", message)
     }
 }
