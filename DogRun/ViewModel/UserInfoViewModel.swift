@@ -17,51 +17,57 @@ class UserInfoViewModel {
     }
 
     func submitResult(completion: @escaping (Error?) -> Void) {
-        let baseUrl = LocalizationKeys.baseUrl.localized
+        
+        let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
         let apiUrl = "\(baseUrl)/UserEdit"
         
-        let parameters: [String: Any] = [
-            "uid": userInfo.userId,
-            "name": userInfo.nickName,
-            "birth": userInfo.birth,
-            "area": userInfo.area,
-            "gender": userInfo.selectedGender
-        ]
-
-        
-        let request = AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-        request.responseData { responseData in
+        AF.request(apiUrl, method: .post, parameters: params(data: userInfo), encoding: JSONEncoding.default).responseData { responseData in
             switch responseData.result {
             case .success:
                 do {
                     self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: responseData.value!)
-//                    completion(responseData)
+                    self.checkCode()
                 } catch {
-                    self.error = error
                     completion(error)
                 }
 
             case .failure(let error):
-                self.error = error
                 completion(error)
             }
         }
+    }
+    
+    // 리턴코드 체크
+    private func checkCode(){
         
-//        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-//            switch response.result {
-//            case .success:
-//                do {
-//                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: response.data!)
-//                    completion(responseData)
-//                } catch {
-//                    self.error = error
-//                    completion(error)
-//                }
-//
-//            case .failure(let error):
-//                self.error = error
-//                completion(error)
-//            }
-//        }
+        guard let responseData = self.responseData else { return }
+        guard let code = responseData.code else { return  }
+        if code == ResponseStatus.editUserInfo.rawValue { saveData() }
+    }
+    // 데이터 저장
+    private func saveData(){
+        do {
+            // UserInfo 인스턴스를 JSON 데이터로 인코딩
+            let encodedData = try JSONEncoder().encode(responseData?.data)
+            // JSON 데이터를 UserDefaults에 저장
+            UserDefaults.standard.set(encodedData, forKey: "userInfos")
+            UserDefaults.standard.synchronize()
+        } catch {
+            print("Error encoding UserInfo: \(error)")
+        }
+    }
+    
+    // 파라미터 변환
+    private func params(data: UserInfo) -> [String: Any]{
+        
+        let parameters: [String: Any] = [
+            "uid": data.uid,
+            "name": data.name,
+            "birth": data.birth,
+            "area": data.area,
+            "gender": data.gender
+        ]
+        
+        return parameters
     }
 }

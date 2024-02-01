@@ -13,11 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        sleep(2)
         // UIWindow 생성
         window = UIWindow(frame: UIScreen.main.bounds)
         // 초기 화면 설정
-        let viewController = ViewController()
+        let viewController = LoginViewController()
         // UINavigationController 생성 및 rootViewController로 viewControllerA 지정
         let navigationController = UINavigationController(rootViewController: viewController)
         // UIWindow의 rootViewController로 UINavigationController 설정

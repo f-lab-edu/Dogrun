@@ -5,30 +5,29 @@
 //  Created by 이규관 on 2024/01/18.
 //
 
-struct LocalizationKeys {
+enum LocalizationKeys: String {
     
-    static let baseUrl = "baseUrl"
-    static let tfNickname = "textfield_placehold_nickname"
-    static let tfBirth = "textfield_placehold_birth"
-    static let btnConfirm = "btn_confirm"
-    static let labelName = "label_nickname"
-    static let labelBirth = "label_birth"
-    static let labelGender = "label_gender"
-    static let labelArea = "label_area"
-    static let alertName = "textfield_alert_name"
-    static let alertBirth = "textfield_alert_birth"
-    static let alertArea = "textfield_alert_area"
-    static let alertTitle = "alert_title"
-    static let alertConfirm = "alert_confirm"
+    case baseUrl = "baseUrl"
+    case tfNickname = "textfield_placehold_nickname"
+    case tfBirth = "textfield_placehold_birth"
+    case btnConfirm = "btn_confirm"
+    case labelName = "label_nickname"
+    case labelBirth = "label_birth"
+    case labelGender = "label_gender"
+    case labelArea = "label_area"
+    case alertName = "textfield_alert_name"
+    case alertBirth = "textfield_alert_birth"
+    case alertArea = "textfield_alert_area"
+    case alertTitle = "alert_title"
+    case alertConfirm = "alert_confirm"
     
     // dog info
-    static let labelDogName = "label_dog_name"
-    static let labelDogBreed = "label_dog_breed"
-    static let labelDogAge = "label_dog_age"
-    static let labelDogGender = "label_dog_gender"
-    static let labelDogSize = "label_dog_size"
-    static let tfDogName = "textfield_placehold_dog_name"
-    static let tfDogBreed = "textfield_placehold_dog_breed"
-    
-    
+    case labelDogName = "label_dog_name"
+    case labelDogBreed = "label_dog_breed"
+    case labelDogAge = "label_dog_age"
+    case labelDogGender = "label_dog_gender"
+    case labelDogSize = "label_dog_size"
+    case tfDogName = "textfield_placehold_dog_name"
+    case tfDogBreed = "textfield_placehold_dog_breed"
 }
+

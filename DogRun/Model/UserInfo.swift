@@ -6,9 +6,10 @@
 //
 
 struct UserInfo: Codable {
-    var userId: String
-    var nickName: String
+    var uid: String
+    var email: String
+    var name: String
     var birth: String
     var area: String
-    var selectedGender: String
+    var gender: Gender
 }

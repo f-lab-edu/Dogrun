@@ -7,12 +7,12 @@
 
 struct DogInfo: Codable {
     
-    var ownerId: String
-    var dogName: String
-    var dogBreed: String
-    var dogBirth: String
-    var dogGender: String
-    var dogSize: String
+    var uid: String
+    var name: String
+    var breed: String
+    var birth: String
+    var gender: String
+    var size: String
     
 }
 

@@ -15,6 +15,9 @@ enum ResponseStatus: Int {
     
     // 회원 정보 수정
     case editUserInfo = 257
+     
+    // 펫 정보 수정
+    case editDogInfo = 258
     
     // 서버 에러
     case unknownError = 500

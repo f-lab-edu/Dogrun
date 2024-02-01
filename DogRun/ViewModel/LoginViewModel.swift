@@ -1,36 +1,34 @@
 //
-//  DogInfoViewModel.swift
+//  LoginViewModel.swift
 //  DogRun
 //
-//  Created by 이규관 on 2024/01/26.
-//
+
 import UIKit
 import Alamofire
-import OSLog
 
-class DogInfoViewModel {
+class LoginViewModel {
     
-    var viewController: UIViewController
-    var dogInfo: DogInfo
-    var responseData: ResponseDogInfoData?
+    var loginInfo: LoginInfo
+    var responseData: ResponseLoginData?
     var error: Error?
     
-    init(viewController: UIViewController, dogInfo: DogInfo) {
-        self.viewController = viewController
-        self.dogInfo = dogInfo
+    init(loginInfo: LoginInfo) {
+        self.loginInfo = loginInfo
     }
 
     func submitResult(completion: @escaping (Error?) -> Void) {
+        
         let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
-        let apiUrl = "\(baseUrl)/DogInfoEdit"
-          
-        AF.request(apiUrl, method: .post, parameters: params(data: dogInfo), encoding: JSONEncoding.default).responseData { responseData in
+        // login url
+        let apiUrl = "\(LocalizationKeys.baseUrl.rawValue.localized)/signIn?uid=\(loginInfo.uid)&name=\(loginInfo.name)&email=\(loginInfo.email)"
+        
+        AF.request(apiUrl).responseJSON { responseData in
             switch responseData.result {
             case .success:
-               
                 do {
-                    self.responseData = try JSONDecoder().decode(ResponseDogInfoData.self, from: responseData.value!)
+                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: responseData.data!)
                     self.checkCode()
+                     
                 } catch {
                     completion(error)
                 }
@@ -46,16 +44,15 @@ class DogInfoViewModel {
         
         guard let responseData = self.responseData else { return }
         guard let code = responseData.code else { return  }
-        if code == ResponseStatus.editDogInfo.rawValue  { saveData() }
-        
+        if code == ResponseStatus.firstTimeRegistered.rawValue || code == ResponseStatus.alreadyRegistered.rawValue { saveData() }
     }
-    // 응답데이터 저장
+    // 데이터 저장
     private func saveData(){
         do {
             // UserInfo 인스턴스를 JSON 데이터로 인코딩
             let encodedData = try JSONEncoder().encode(responseData?.data)
             // JSON 데이터를 UserDefaults에 저장
-            UserDefaults.standard.set(encodedData, forKey: "dogInfos")
+            UserDefaults.standard.set(encodedData, forKey: "loginInfos")
             UserDefaults.standard.synchronize()
             
         } catch {
@@ -64,18 +61,16 @@ class DogInfoViewModel {
     }
     
     // 파라미터 변환
-    private func params(data: DogInfo) -> [String: Any]{
+    private func params(data: UserInfo) -> [String: Any]{
         
         let parameters: [String: Any] = [
-            "uid": AppConstants.dummyUserId,
+            "uid": data.uid,
             "name": data.name,
-            "breed": data.breed,
             "birth": data.birth,
-            "size": data.size,
+            "area": data.area,
             "gender": data.gender
         ]
         
         return parameters
     }
 }
-

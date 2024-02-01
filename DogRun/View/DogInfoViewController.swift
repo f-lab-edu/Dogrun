@@ -11,8 +11,8 @@ import OSLog
 
 final class DogInfoViewController: UIViewController {
     
-    let genderArray = ["남", "여"]
-    let sizeArray = ["S", "M", "L"]
+    let genderArray = AppConstants.genderArray
+    let sizeArray = AppConstants.sizeArray
     private lazy var dogGender: String = ""
     private lazy var dogSize: String = ""
     
@@ -24,11 +24,11 @@ final class DogInfoViewController: UIViewController {
     private var captionDogBreed: UILabel!
     private var captionDogSize: UILabel!
     
-    private let dognameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfDogName.localized )
+    private let dognameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfDogName.rawValue.localized )
     
-    private let dogBreedTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfDogBreed.localized )
+    private let dogBreedTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfDogBreed.rawValue.localized )
     
-    private let dogAgeTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.localized )
+    private let dogAgeTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.rawValue.localized )
     
     private lazy var genderSegmentedControl = UISegmentedControl(items: genderArray)
     
@@ -46,13 +46,13 @@ final class DogInfoViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
         
-        makeView()
+        layout()
     }
     
-    private func makeView(){
+    private func layout(){
         
         // 캡션 (펫 이름)
-        captionDogname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogName.localized)
+        captionDogname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogName.rawValue.localized)
         view.addSubview(captionDogname)
         captionDogname.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(LayoutConstants.topOffset)
@@ -69,7 +69,7 @@ final class DogInfoViewController: UIViewController {
         
         
         // 캡션 (펫 나이)
-        captionDogAge = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogAge.localized)
+        captionDogAge = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogAge.rawValue.localized)
         view.addSubview(captionDogAge)
         captionDogAge.snp.makeConstraints {
             $0.top.equalTo(dognameTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -85,7 +85,7 @@ final class DogInfoViewController: UIViewController {
         }
         
         // 캡션 (품종)
-        captionDogBreed = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogBreed.localized)
+        captionDogBreed = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogBreed.rawValue.localized)
         view.addSubview(captionDogBreed)
         captionDogBreed.snp.makeConstraints {
             $0.top.equalTo(dogAgeTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -101,7 +101,7 @@ final class DogInfoViewController: UIViewController {
         }
         
         // 캡션 (성별)
-        captionDogGender = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogGender.localized)
+        captionDogGender = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogGender.rawValue.localized)
         view.addSubview(captionDogGender)
         captionDogGender.snp.makeConstraints {
             $0.top.equalTo(dogBreedTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -118,7 +118,7 @@ final class DogInfoViewController: UIViewController {
         
         
         // 캡션 (사이즈)
-        captionDogSize = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogSize.localized)
+        captionDogSize = UILabel.makeCaptionLabel(text: LocalizationKeys.labelDogSize.rawValue.localized)
         view.addSubview(captionDogSize)
         captionDogSize.snp.makeConstraints {
             $0.top.equalTo(genderSegmentedControl.snp.bottom).offset(LayoutConstants.topOffset)
@@ -141,6 +141,25 @@ final class DogInfoViewController: UIViewController {
             $0.height.equalTo(LayoutConstants.buttonHeight)
         }
     }
+  
+    
+    func requestViewModel(_ userId: String,_ name: String,_ birth: String,_ breed: String,_ size: String,_ gender: String){
+        
+        var editDogInfo = DogInfo(uid: userId, name: name, breed: breed, birth: birth, gender: gender, size: size)
+        
+        viewModel = DogInfoViewModel(viewController: self, dogInfo: editDogInfo)
+        
+        viewModel?.submitResult { [weak self] error in
+            guard let error = error else {
+                // TODO : 화면 이동 
+                return
+            }
+        }
+    }
+}
+
+// MARK: - view click event (objc)
+extension DogInfoViewController {
     
     // UITapGestureRecognizer에 대한 핸들러 메서드
     @objc func handleTap() {
@@ -151,30 +170,15 @@ final class DogInfoViewController: UIViewController {
     // 제출버튼 클틱 이벤트
     @objc func submitResult() {
         
-        guard let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo) else { return }
+        guard let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo.rawValue) else { return }
         // 펫이름, 성별, 나이, 견종, 사이즈
-        guard let dogName = dognameTextField.text, !dogName.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertName.localized, vc: self); return  }
-        guard let dogBirth = dogAgeTextField.text,  !dogBirth.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertBirth.localized, vc: self); return   }
-        guard let dogBreed = dogBreedTextField.text, !dogBreed.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertArea.localized, vc: self); return }
+        guard let dogName = dognameTextField.text, !dogName.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertName.rawValue.localized, vc: self); return  }
+        guard let dogBirth = dogAgeTextField.text,  !dogBirth.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertBirth.rawValue.localized, vc: self); return   }
+        guard let dogBreed = dogBreedTextField.text, !dogBreed.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertArea.rawValue.localized, vc: self); return }
         
         dogGender = genderArray[genderSegmentedControl.selectedSegmentIndex]
         dogSize = sizeArray[sizeSegmentedControl.selectedSegmentIndex]
         
         requestViewModel(userId,dogName,dogBirth,dogBreed,dogGender,dogSize)
     }
-    
-    func requestViewModel(_ userId: String,_ name: String,_ birth: String,_ breed: String,_ size: String,_ gender: String){
-        
-        var editDogInfo = DogInfo(ownerId: userId, dogName: name, dogBreed: breed, dogBirth: birth, dogGender: gender, dogSize: size)
-        
-        viewModel = DogInfoViewModel(viewController: self, dogInfo: editDogInfo)
-        
-        viewModel?.submitResult { [weak self] error in
-            
-            if let error = error {
-                OSLog.message(.error, "error : \(error)")
-            }
-        }
-    }
-
 }

@@ -1,8 +1,7 @@
 //
-//  OSLog.swift
+//  OSLog+Extension.swift
 //  DogRun
 //
-//  Created by 이규관 on 2024/01/15.
 //
 
 import Foundation
