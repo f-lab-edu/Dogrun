@@ -19,6 +19,10 @@
 		EC4BDCE22B6BF6E500F14872 /* DogInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */; };
 		EC4BDCE42B6BF7B900F14872 /* ResponseDogInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */; };
 		EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE62B6C008800F14872 /* Utils.swift */; };
+		EC5DCBBC2B6CE80F00D87A69 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5DCBBB2B6CE80F00D87A69 /* MainViewController.swift */; };
+		EC5DCBBE2B6D0B0100D87A69 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5DCBBD2B6D0B0100D87A69 /* MainViewModel.swift */; };
+		EC5DCBC02B6D0DAE00D87A69 /* MainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5DCBBF2B6D0DAD00D87A69 /* MainInfo.swift */; };
+		EC5DCBC32B6D101D00D87A69 /* ResponseMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5DCBC22B6D101D00D87A69 /* ResponseMainData.swift */; };
 		EC5E014E2B6274CC0046CE7B /* DoginfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */; };
 		EC5E01502B62CDB40046CE7B /* DogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E014F2B62CDB40046CE7B /* DogInfo.swift */; };
 		EC8106EC2B5A4B25006A2952 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106DD2B5A4B25006A2952 /* String+Extension.swift */; };
@@ -67,6 +71,10 @@
 		EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogInfoViewModel.swift; sourceTree = "<group>"; };
 		EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDogInfoData.swift; sourceTree = "<group>"; };
 		EC4BDCE62B6C008800F14872 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EC5DCBBB2B6CE80F00D87A69 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EC5DCBBD2B6D0B0100D87A69 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EC5DCBBF2B6D0DAD00D87A69 /* MainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfo.swift; sourceTree = "<group>"; };
+		EC5DCBC22B6D101D00D87A69 /* ResponseMainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMainData.swift; sourceTree = "<group>"; };
 		EC5E01442B623F7D0046CE7B /* DogRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoginfoViewControllerTests.swift; sourceTree = "<group>"; };
 		EC5E014F2B62CDB40046CE7B /* DogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfo.swift; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 				ECC50A552B44CF7400028428 /* LoginViewController.swift */,
 				EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */,
 				EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */,
+				EC5DCBBB2B6CE80F00D87A69 /* MainViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +156,16 @@
 				EC4BDCE62B6C008800F14872 /* Utils.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		EC5DCBC12B6D0FED00D87A69 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */,
+				EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */,
+				EC5DCBC22B6D101D00D87A69 /* ResponseMainData.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		EC5E01452B623F7D0046CE7B /* DogRunTests */ = {
@@ -170,11 +189,10 @@
 		EC8106E02B5A4B25006A2952 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */,
 				EC8106E12B5A4B25006A2952 /* UserInfo.swift */,
 				EC5E014F2B62CDB40046CE7B /* DogInfo.swift */,
-				EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */,
 				EC4188712B6C118D00A9E649 /* LoginInfo.swift */,
+				EC5DCBBF2B6D0DAD00D87A69 /* MainInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +217,7 @@
 				EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */,
 				EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */,
 				EC41886F2B6C111700A9E649 /* LoginViewModel.swift */,
+				EC5DCBBD2B6D0B0100D87A69 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -226,6 +245,7 @@
 		ECC50A502B44CF7400028428 /* DogRun */ = {
 			isa = PBXGroup;
 			children = (
+				EC5DCBC12B6D0FED00D87A69 /* Network */,
 				EC4BDCE52B6C007B00F14872 /* Util */,
 				EC12E4352B617F1700EC5DF9 /* View */,
 				EC8106E22B5A4B25006A2952 /* Constants */,
@@ -401,7 +421,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5DCBC02B6D0DAE00D87A69 /* MainInfo.swift in Sources */,
+				EC5DCBBC2B6CE80F00D87A69 /* MainViewController.swift in Sources */,
 				EC4188702B6C111700A9E649 /* LoginViewModel.swift in Sources */,
+				EC5DCBC32B6D101D00D87A69 /* ResponseMainData.swift in Sources */,
 				EC8106F12B5A4B25006A2952 /* LocalizationKeys.swift in Sources */,
 				EC4BDCD52B6BE6AB00F14872 /* UI+Extension.swift in Sources */,
 				EC8106EC2B5A4B25006A2952 /* String+Extension.swift in Sources */,
@@ -421,6 +444,7 @@
 				EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */,
 				EC12E4342B617EAD00EC5DF9 /* DogInfoViewController.swift in Sources */,
 				ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */,
+				EC5DCBBE2B6D0B0100D87A69 /* MainViewModel.swift in Sources */,
 				EC8106EF2B5A4B25006A2952 /* UserInfo.swift in Sources */,
 				EC4BDCDB2B6BE86000F14872 /* Gender.swift in Sources */,
 				EC8106F22B5A4B25006A2952 /* DateFormat.swift in Sources */,

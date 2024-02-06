@@ -17,5 +17,7 @@ struct AppConstants {
     static let dummyUserId = "001598.0282b55949504aebaeec0a9fb2480995.1806"
     
     static let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo.rawValue)
+    
+    static let daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"]
 
 }

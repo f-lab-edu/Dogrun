@@ -19,6 +19,11 @@ enum ResponseStatus: Int {
     // 펫 정보 수정
     case editDogInfo = 258
     
+    // 홈데이터 조회
+    case mainDataInit = 259
+    
     // 서버 에러
     case unknownError = 500
+    
+    
 }
