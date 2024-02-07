@@ -6,68 +6,46 @@
 //
 import UIKit
 import Alamofire
+import OSLog
+
 
 class UserInfoViewModel {
-    var userInfo: UserInfo
-    var responseData: ResponseLoginData?
-    var error: Error?
+   
     
-    init(userInfo: UserInfo) {
-        self.userInfo = userInfo
+    var apiService: ApiService
+    
+    
+    init(apiService: ApiService) {
+        self.apiService = apiService
     }
 
-    func submitResult(completion: @escaping (Error?) -> Void) {
-        
-        let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
-        let apiUrl = "\(baseUrl)/UserEdit"
-        
-        AF.request(apiUrl, method: .post, parameters: params(data: userInfo), encoding: JSONEncoding.default).responseData { responseData in
-            switch responseData.result {
-            case .success:
-                do {
-                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: responseData.value!)
-                    self.checkCode()
-                } catch {
-                    completion(error)
+    func save(data: UserInfo, completion: @escaping (Bool) -> Void) {
+        apiService.userInfoEdit(data: data) { result in
+            switch result {
+            case .success(let responseData):
+                
+                let success = self.isSuccessResponse(code: responseData.code)
+                
+                if success {
+                    do {
+                        try UserDefault().saveUserInfo(data: responseData.data!, keys: "userInfos")
+                        completion(true) // 성공적으로 저장되었음을 클로저를 통해 외부에 알림
+                    } catch {
+                        completion(false) // 데이터 저장 실패를 클로저를 통해 외부에 알림
+                        OSLog.message(.error, "data save fail")
+                    }
                 }
-
             case .failure(let error):
-                completion(error)
+                completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
+                OSLog.message(.error, "\(error)")
             }
         }
     }
     
     // 리턴코드 체크
-    private func checkCode(){
-        
-        guard let responseData = self.responseData else { return }
-        guard let code = responseData.code else { return  }
-        if code == ResponseStatus.editUserInfo.rawValue { saveData() }
-    }
-    // 데이터 저장
-    private func saveData(){
-        do {
-            // UserInfo 인스턴스를 JSON 데이터로 인코딩
-            let encodedData = try JSONEncoder().encode(responseData?.data)
-            // JSON 데이터를 UserDefaults에 저장
-            UserDefaults.standard.set(encodedData, forKey: "userInfos")
-            UserDefaults.standard.synchronize()
-        } catch {
-            print("Error encoding UserInfo: \(error)")
-        }
+    private func isSuccessResponse(code: Int?) -> Bool {
+        guard let valid = code else { return false }
+        return valid == ResponseStatus.responseSuccess.rawValue
     }
     
-    // 파라미터 변환
-    private func params(data: UserInfo) -> [String: Any]{
-        
-        let parameters: [String: Any] = [
-            "uid": data.uid,
-            "name": data.name,
-            "birth": data.birth,
-            "area": data.area,
-            "gender": data.gender
-        ]
-        
-        return parameters
-    }
 }

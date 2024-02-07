@@ -42,6 +42,8 @@ final class UserInfoViewController: UIViewController {
     private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult))
 
     var viewModel: UserInfoViewModel?
+    
+    private let service = ApiService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,7 @@ final class UserInfoViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         
-        viewModel = UserInfoViewModel(userInfo: UserInfo(uid: "", email: "", name: "", birth: "", area: "", gender: Gender.etc))
+        viewModel = UserInfoViewModel(apiService: service)
         layout()
     }
     
@@ -141,19 +143,13 @@ final class UserInfoViewController: UIViewController {
 
         let userEditInfo = UserInfo(uid: userId, email: "", name: nickName, birth: birth, area: area, gender: Gender(rawValue: selectedGender)!)
 
-        viewModel = UserInfoViewModel(userInfo: userEditInfo)
-        
-        viewModel?.submitResult { [weak self] error in
+        viewModel?.save(data: userEditInfo) { success in
             
-            guard let self = self else { return }
-
-              if let error = error {
-                  // TODO: - need to error alert
-              } else {
-                  // 에러가 없을 경우 화면을 이동.
-                  let nextView = DogInfoViewController()
-                  navigationController?.setViewControllers([nextView], animated: true)
-              }
+            if success {
+                OSLog.message(.default, "saved successfully")
+            } else {
+                OSLog.message(.debug, "saved fail")
+            }
         }
     }
 }
