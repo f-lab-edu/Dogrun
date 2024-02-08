@@ -54,7 +54,7 @@ final class UserInfoViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         
-        viewModel = UserInfoViewModel(apiService: service)
+        viewModel = UserInfoViewModel(persistenceService: service)
         layout()
     }
     
@@ -141,9 +141,9 @@ final class UserInfoViewController: UIViewController {
     
     private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String){
 
-        let userEditInfo = UserInfo(uid: userId, email: "", name: nickName, birth: birth, area: area, gender: Gender(rawValue: selectedGender)!)
+        let userInfo = UserInfo(uid: userId, email: "", name: nickName, birth: birth, area: area, gender: Gender(rawValue: selectedGender)!)
 
-        viewModel?.save(data: userEditInfo) { success in
+        viewModel?.update(data: userInfo) { success in
             
             if success {
                 OSLog.message(.default, "saved successfully")

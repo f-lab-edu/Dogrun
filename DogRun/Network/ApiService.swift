@@ -8,26 +8,23 @@
 import Foundation
 import Alamofire
 
-class ApiService {
+final class ApiService {
     
     let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
    
-    
-    func userInfoEdit(data: UserInfo,completion: @escaping (Result<ResponseLoginData, Error>) -> Void) {
+    func updateUserInfo(data: UserInfo) async throws -> ResponseLoginData {
         
         let apiUrl = "\(baseUrl)/UserEdit"
-        AF.request(apiUrl, method: .post, parameters: data.params(), encoding: JSONEncoding.default).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: data)
-                    completion(.success(responseData))
-                } catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
+        
+        do {
+            
+            let data = try await URLSession.shared.data(from: URL(string: apiUrl)!).0
+            let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: data)
+            return responseData
+            
+        } catch {
+            throw error
         }
     }
+
 }

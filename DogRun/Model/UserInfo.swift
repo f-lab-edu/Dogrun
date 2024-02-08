@@ -15,16 +15,13 @@ struct UserInfo: Codable {
     var gender: Gender
     
     // 파라미터 변환
-    func params() -> [String: Any]{
-        
-        let parameters: [String: Any] = [
+    func params() -> [String: Any] {
+        return [
             "uid": uid,
             "name": name,
             "birth": birth,
             "area": area,
             "gender": gender
         ]
-        
-        return parameters
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserDefault {
+final class UserDefault {
     
     // 데이터 저장
     func saveUserInfo(data: UserInfo, keys: String) throws{

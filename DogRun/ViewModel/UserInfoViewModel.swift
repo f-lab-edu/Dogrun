@@ -12,21 +12,20 @@ import OSLog
 class UserInfoViewModel {
    
     
-    var apiService: ApiService
+    var persistenceService: ApiService
     
     
-    init(apiService: ApiService) {
-        self.apiService = apiService
+    init(persistenceService: ApiService) {
+        self.persistenceService = persistenceService
     }
 
-    func save(data: UserInfo, completion: @escaping (Bool) -> Void) {
-        apiService.userInfoEdit(data: data) { result in
-            switch result {
-            case .success(let responseData):
-                
-                let success = self.isSuccessResponse(code: responseData.code)
-                
-                if success {
+    func update(data: UserInfo, completion: @escaping (Bool) -> Void) {
+        Task {
+            do {
+      
+                let responseData = try await persistenceService.updateUserInfo(data: data)
+                // 성공적인 응답 코드를 확인하고 데이터 저장
+                if isSuccessResponse(code: responseData.code) {
                     do {
                         try UserDefault().saveUserInfo(data: responseData.data!, keys: "userInfos")
                         completion(true) // 성공적으로 저장되었음을 클로저를 통해 외부에 알림
@@ -35,17 +34,19 @@ class UserInfoViewModel {
                         OSLog.message(.error, "data save fail")
                     }
                 }
-            case .failure(let error):
+            } catch {
                 completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
-                OSLog.message(.error, "\(error)")
             }
         }
     }
+ 
     
     // 리턴코드 체크
     private func isSuccessResponse(code: Int?) -> Bool {
         guard let valid = code else { return false }
-        return valid == ResponseStatus.responseSuccess.rawValue
+        return valid == ResponseStatus.success.rawValue
     }
+    
+  
     
 }
