@@ -7,7 +7,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     
     let navigationBar = UINavigationBar()
@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     
     let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo.rawValue)
     
-    var mainInfo: MainInfo
+    var mainInfo: MainInfo?
     
     
     private let segmentedControl: UISegmentedControl = {

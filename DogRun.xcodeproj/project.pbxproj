@@ -35,6 +35,8 @@
 		EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */; };
 		EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */; };
 		EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */; };
+		ECC215492B73DD0900B25F60 /* WalkStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC215482B73DD0900B25F60 /* WalkStartViewController.swift */; };
+		ECC2154B2B73DF6100B25F60 /* CoreMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2154A2B73DF6100B25F60 /* CoreMotionService.swift */; };
 		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
 		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
 		ECC50A562B44CF7400028428 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* LoginViewController.swift */; };
@@ -88,6 +90,8 @@
 		EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseLoginData.swift; sourceTree = "<group>"; };
+		ECC215482B73DD0900B25F60 /* WalkStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkStartViewController.swift; sourceTree = "<group>"; };
+		ECC2154A2B73DF6100B25F60 /* CoreMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionService.swift; sourceTree = "<group>"; };
 		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC50A512B44CF7400028428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC50A532B44CF7400028428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */,
 				EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */,
 				EC5DCBBB2B6CE80F00D87A69 /* MainViewController.swift */,
+				ECC215482B73DD0900B25F60 /* WalkStartViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4BDCE62B6C008800F14872 /* Utils.swift */,
+				ECC2154A2B73DF6100B25F60 /* CoreMotionService.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 				EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */,
 				EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */,
 				EC5E01502B62CDB40046CE7B /* DogInfo.swift in Sources */,
+				ECC215492B73DD0900B25F60 /* WalkStartViewController.swift in Sources */,
 				EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */,
 				EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */,
 				EC8106F02B5A4B25006A2952 /* UserDefaultsKeys.swift in Sources */,
@@ -448,6 +455,7 @@
 				EC8106EF2B5A4B25006A2952 /* UserInfo.swift in Sources */,
 				EC4BDCDB2B6BE86000F14872 /* Gender.swift in Sources */,
 				EC8106F22B5A4B25006A2952 /* DateFormat.swift in Sources */,
+				ECC2154B2B73DF6100B25F60 /* CoreMotionService.swift in Sources */,
 				EC4BDCE22B6BF6E500F14872 /* DogInfoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

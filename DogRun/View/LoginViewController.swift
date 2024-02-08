@@ -56,6 +56,8 @@ final class LoginViewController: UIViewController {
             return
         }
         switch status {
+            
+            
             case .alreadyRegistered:
                 // 이미 가입된 계정일 경우 - 홈 이동
                 // 홈화면 이동
@@ -71,7 +73,10 @@ final class LoginViewController: UIViewController {
                 os_log("Unknown login error", log: .debug)
             case .editDogInfo:
                 os_log("Unknown login error", log: .debug)
-            }
+            case .mainDataInit:
+                os_log("Unknown login error", log: .debug) 
+            
+        }
     }
   
 }
