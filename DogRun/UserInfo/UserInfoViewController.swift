@@ -22,6 +22,7 @@ final class UserInfoViewController: UIViewController {
     private var captionArea: UILabel!
     private var selectArea: String?
     private lazy var selectedGender: String = ""
+    let numberOfComponents = 1
     
     
     // 닉네임 필드
@@ -137,15 +138,14 @@ final class UserInfoViewController: UIViewController {
         birthdateTextField.inputView = datePicker
     }
     
+    // TODO: 다음 버전에 반영예정
     @objc func submitResult() {
         // 저장된 로그인 uid
         guard let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo) else { return }
-        
         // 닉네임, 성별, 지역 값
-        guard let nickName = nicknameTextField.text, !nickName.isEmpty else { showAlert(message: LocalizationKeys.alertName.localized); return  }
-        guard let birth = birthdateTextField.text,  !birth.isEmpty else {  showAlert(message: LocalizationKeys.alertBirth.localized); return   }
-        guard let area = selectArea, !area.isEmpty   else {  showAlert(message: LocalizationKeys.alertArea.localized); return }
-         
+        guard let nickName = nicknameTextField.text, !nickName.isEmpty else { showAlert(message: LocalizationKeys.alertName.localized); return }
+        guard let birth = birthdateTextField.text, !birth.isEmpty else { showAlert(message: LocalizationKeys.alertBirth.localized); return }
+        guard let area = selectArea, !area.isEmpty else { showAlert(message: LocalizationKeys.alertArea.localized); return }
         selectedGender = genderArray[genderSegmentedControl.selectedSegmentIndex]
         
         requestApi(userId, nickName, birth, area)
@@ -175,12 +175,11 @@ final class UserInfoViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // TODO: 다음 버전에 반영예정
     private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String,){
 
         let userEditInfo = UserInfo(userId: userId, nickName: nickName, birth: birth, area: area, selectedGender: self.selectedGender)
-
         viewModel = UserInfoViewModel(userInfo: userEditInfo)
-        
         viewModel.submitResult { [weak self] error in
              
             if let error = error {
@@ -217,10 +216,10 @@ final class UserInfoViewController: UIViewController {
 extension UserInfoViewController: UIPickerViewDataSource{
     // UIPickerViewDataSource 구현
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return numberOfComponents
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-      // 지역의 수 반환
+        // 지역의 수 반환
         return sidoArea.count
     }
 }

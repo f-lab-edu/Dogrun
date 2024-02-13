@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A0C3F68C82C50F41FF61EA2E /* Pods_DogRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */; };
+		EC181E712B7BB03C00E5607B /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E642B7BB03B00E5607B /* UserDefaultsKeys.swift */; };
+		EC181E722B7BB03C00E5607B /* LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E652B7BB03B00E5607B /* LocalizationKeys.swift */; };
+		EC181E732B7BB03C00E5607B /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E662B7BB03B00E5607B /* DateFormat.swift */; };
+		EC181E742B7BB03C00E5607B /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E672B7BB03B00E5607B /* LayoutConstants.swift */; };
+		EC181E752B7BB03C00E5607B /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E682B7BB03B00E5607B /* ResponseStatus.swift */; };
+		EC181E762B7BB03C00E5607B /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6A2B7BB03B00E5607B /* UserInfoViewModel.swift */; };
+		EC181E772B7BB03C00E5607B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6C2B7BB03B00E5607B /* String+Extension.swift */; };
+		EC181E782B7BB03C00E5607B /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6D2B7BB03B00E5607B /* OSLog.swift */; };
+		EC181E792B7BB03C00E5607B /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6E2B7BB03B00E5607B /* UIExtensions.swift */; };
+		EC181E7A2B7BB03C00E5607B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E702B7BB03C00E5607B /* UserInfo.swift */; };
 		EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */; };
 		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
 		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
@@ -16,20 +26,24 @@
 		ECC50A5B2B44CF7800028428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A5A2B44CF7800028428 /* Assets.xcassets */; };
 		ECC50A5E2B44CF7800028428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A5C2B44CF7800028428 /* LaunchScreen.storyboard */; };
 		ECD8D9062B567E6B00CCBE8D /* UserInfo in Resources */ = {isa = PBXBuildFile; fileRef = ECD8D9052B567E6B00CCBE8D /* UserInfo */; };
-		ECD8D90C2B567F4400CCBE8D /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8D90A2B567F4400CCBE8D /* UserDefaultsKeys.swift */; };
-		ECD8D90D2B567F4400CCBE8D /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8D90B2B567F4400CCBE8D /* ResponseStatus.swift */; };
-		ECD8D9102B567F6C00CCBE8D /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8D90F2B567F6C00CCBE8D /* OSLog.swift */; };
 		ECD8D9132B567FBA00CCBE8D /* OSLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD8D9122B567FBA00CCBE8D /* OSLog.framework */; };
 		ECD8D9192B56829B00CCBE8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD8D91B2B56829B00CCBE8D /* Localizable.strings */; };
-		ECD8D91E2B56863100CCBE8D /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8D91D2B56863100CCBE8D /* LayoutConstants.swift */; };
-		ECD8D9202B56884700CCBE8D /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8D91F2B56884700CCBE8D /* UIExtension.swift */; };
-		ECD8D9222B56940D00CCBE8D /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8D9212B56940D00CCBE8D /* DateFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3DBB6D9B1FB7E0704E56EF57 /* Pods-DogRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.debug.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.debug.xcconfig"; sourceTree = "<group>"; };
 		4812423D31EF09C7A0B03200 /* Pods-DogRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.release.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.release.xcconfig"; sourceTree = "<group>"; };
 		A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC181E642B7BB03B00E5607B /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		EC181E652B7BB03B00E5607B /* LocalizationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationKeys.swift; sourceTree = "<group>"; };
+		EC181E662B7BB03B00E5607B /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		EC181E672B7BB03B00E5607B /* LayoutConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
+		EC181E682B7BB03B00E5607B /* ResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
+		EC181E6A2B7BB03B00E5607B /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		EC181E6C2B7BB03B00E5607B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		EC181E6D2B7BB03B00E5607B /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		EC181E6E2B7BB03B00E5607B /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		EC181E702B7BB03C00E5607B /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogRun.entitlements; sourceTree = "<group>"; };
 		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,15 +55,9 @@
 		ECC50A5D2B44CF7800028428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECC50A5F2B44CF7800028428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD8D9052B567E6B00CCBE8D /* UserInfo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UserInfo; sourceTree = "<group>"; };
-		ECD8D90A2B567F4400CCBE8D /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
-		ECD8D90B2B567F4400CCBE8D /* ResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
-		ECD8D90F2B567F6C00CCBE8D /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		ECD8D9122B567FBA00CCBE8D /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		ECD8D91A2B56829B00CCBE8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECD8D91C2B5682BA00CCBE8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ECD8D91D2B56863100CCBE8D /* LayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
-		ECD8D91F2B56884700CCBE8D /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
-		ECD8D9212B56940D00CCBE8D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC181E622B7BB03B00E5607B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EC181E632B7BB03B00E5607B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E642B7BB03B00E5607B /* UserDefaultsKeys.swift */,
+				EC181E652B7BB03B00E5607B /* LocalizationKeys.swift */,
+				EC181E662B7BB03B00E5607B /* DateFormat.swift */,
+				EC181E672B7BB03B00E5607B /* LayoutConstants.swift */,
+				EC181E682B7BB03B00E5607B /* ResponseStatus.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		EC181E692B7BB03B00E5607B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E6A2B7BB03B00E5607B /* UserInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC181E6B2B7BB03B00E5607B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E6C2B7BB03B00E5607B /* String+Extension.swift */,
+				EC181E6D2B7BB03B00E5607B /* OSLog.swift */,
+				EC181E6E2B7BB03B00E5607B /* UIExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EC181E6F2B7BB03C00E5607B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E702B7BB03C00E5607B /* UserInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ECC50A452B44CF7400028428 = {
 			isa = PBXGroup;
 			children = (
@@ -104,8 +157,11 @@
 		ECC50A502B44CF7400028428 /* DogRun */ = {
 			isa = PBXGroup;
 			children = (
-				ECD8D90E2B567F6C00CCBE8D /* Extension */,
-				ECD8D9092B567F4400CCBE8D /* Constants */,
+				EC181E632B7BB03B00E5607B /* Constants */,
+				EC181E6B2B7BB03B00E5607B /* Extension */,
+				EC181E6F2B7BB03C00E5607B /* Model */,
+				EC181E622B7BB03B00E5607B /* Network */,
+				EC181E692B7BB03B00E5607B /* ViewModel */,
 				ECD8D9052B567E6B00CCBE8D /* UserInfo */,
 				EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */,
 				ECC50A512B44CF7400028428 /* AppDelegate.swift */,
@@ -119,28 +175,6 @@
 				ECD8D91B2B56829B00CCBE8D /* Localizable.strings */,
 			);
 			path = DogRun;
-			sourceTree = "<group>";
-		};
-		ECD8D9092B567F4400CCBE8D /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				ECD8D90A2B567F4400CCBE8D /* UserDefaultsKeys.swift */,
-				ECD8D90B2B567F4400CCBE8D /* ResponseStatus.swift */,
-				ECD8D91D2B56863100CCBE8D /* LayoutConstants.swift */,
-				ECD8D9212B56940D00CCBE8D /* DateFormat.swift */,
-			);
-			name = Constants;
-			path = ../../temp_branch_02/Dogrun/DogRun/Constants;
-			sourceTree = "<group>";
-		};
-		ECD8D90E2B567F6C00CCBE8D /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				ECD8D90F2B567F6C00CCBE8D /* OSLog.swift */,
-				ECD8D91F2B56884700CCBE8D /* UIExtension.swift */,
-			);
-			name = Extension;
-			path = ../../temp_branch_02/Dogrun/DogRun/Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,15 +296,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD8D90C2B567F4400CCBE8D /* UserDefaultsKeys.swift in Sources */,
-				ECD8D91E2B56863100CCBE8D /* LayoutConstants.swift in Sources */,
+				EC181E712B7BB03C00E5607B /* UserDefaultsKeys.swift in Sources */,
+				EC181E742B7BB03C00E5607B /* LayoutConstants.swift in Sources */,
+				EC181E762B7BB03C00E5607B /* UserInfoViewModel.swift in Sources */,
+				EC181E792B7BB03C00E5607B /* UIExtensions.swift in Sources */,
+				EC181E752B7BB03C00E5607B /* ResponseStatus.swift in Sources */,
+				EC181E782B7BB03C00E5607B /* OSLog.swift in Sources */,
 				ECC50A562B44CF7400028428 /* ViewController.swift in Sources */,
-				ECD8D9102B567F6C00CCBE8D /* OSLog.swift in Sources */,
+				EC181E732B7BB03C00E5607B /* DateFormat.swift in Sources */,
+				EC181E7A2B7BB03C00E5607B /* UserInfo.swift in Sources */,
+				EC181E722B7BB03C00E5607B /* LocalizationKeys.swift in Sources */,
 				ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */,
+				EC181E772B7BB03C00E5607B /* String+Extension.swift in Sources */,
 				ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */,
-				ECD8D90D2B567F4400CCBE8D /* ResponseStatus.swift in Sources */,
-				ECD8D9202B56884700CCBE8D /* UIExtension.swift in Sources */,
-				ECD8D9222B56940D00CCBE8D /* DateFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
