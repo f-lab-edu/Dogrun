@@ -7,6 +7,9 @@
 
 enum ResponseStatus: Int {
     
+    // response 성공
+    case success = 200
+    
     // 이미 회원가입
     case alreadyRegistered = 253
     

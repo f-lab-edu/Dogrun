@@ -8,7 +8,7 @@ import UIKit
 import Alamofire
 import OSLog
 
-class DogInfoViewModel {
+final class DogInfoViewModel {
     
     var viewController: UIViewController
     var dogInfo: DogInfo
@@ -20,7 +20,7 @@ class DogInfoViewModel {
         self.dogInfo = dogInfo
     }
 
-    func submitResult(completion: @escaping (Error?) -> Void) {
+    func update(completion: @escaping (Error?) -> Void) {
         let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
         let apiUrl = "\(baseUrl)/DogInfoEdit"
           

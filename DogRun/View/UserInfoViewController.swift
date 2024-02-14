@@ -39,9 +39,12 @@ final class UserInfoViewController: UIViewController {
     private let datePicker = UIDatePicker.makeCustomDatePicker(target: self, action: #selector(datePickerValueChanged(_:)))
     
     // 양식 제출 버튼
-    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult))
+    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(update))
 
     var viewModel: UserInfoViewModel?
+    var userInfo: UserInfo?
+    
+    private let service = APIService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,7 @@ final class UserInfoViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         
-        viewModel = UserInfoViewModel(userInfo: UserInfo(uid: "", email: "", name: "", birth: "", area: "", gender: Gender.etc))
+        viewModel = UserInfoViewModel(persistenceService: service)
         layout()
     }
     
@@ -137,23 +140,13 @@ final class UserInfoViewController: UIViewController {
         birthdateTextField.inputView = datePicker
     }
     
-    private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String){
-
-        let userEditInfo = UserInfo(uid: userId, email: "", name: nickName, birth: birth, area: area, gender: Gender(rawValue: selectedGender)!)
-
-        viewModel = UserInfoViewModel(userInfo: userEditInfo)
-        
-        viewModel?.submitResult { [weak self] error in
-            
-            guard let self = self else { return }
-
-              if let error = error {
-                  // TODO: - need to error alert
-              } else {
-                  // 에러가 없을 경우 화면을 이동.
-                  let nextView = DogInfoViewController()
-                  navigationController?.setViewControllers([nextView], animated: true)
-              }
+    private func updateUserInfo(data: UserInfo){
+        viewModel?.update(data: data) { success in
+            if success {
+                OSLog.message(.default, "saved successfully")
+            } else {
+                OSLog.message(.debug, "saved fail")
+            }
         }
     }
 }
@@ -191,10 +184,10 @@ extension UserInfoViewController {
         guard let nickName = nicknameTextField.text, !nickName.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertName.rawValue.localized, vc: self); return }
         guard let birth = birthdateTextField.text,  !birth.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertBirth.rawValue.localized, vc: self); return }
         guard let area = selectArea, !area.isEmpty   else { Utils().showAlert(message: LocalizationKeys.alertArea.rawValue.localized, vc: self); return }
-        
         selectedGender = genderArray[genderSegmentedControl.selectedSegmentIndex]
         
-        requestApi(userId, nickName, birth, area)
+        userInfo = UserInfo(uid: userId, email: "", name: nickName, birth: birth, area: area, gender: Gender(rawValue: selectedGender)!)
+        updateUserInfo(data: userInfo!)
     }
     
     // 일자 변경시 이벤트 처리

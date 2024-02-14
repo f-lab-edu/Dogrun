@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A0C3F68C82C50F41FF61EA2E /* Pods_DogRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */; };
 		EC12E4342B617EAD00EC5DF9 /* DogInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */; };
+		EC181E802B7BB7B700E5607B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E7C2B7BB7B700E5607B /* APIService.swift */; };
+		EC181E832B7BBDFB00E5607B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */; };
+		EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E862B7BF0CF00E5607B /* UserRepository.swift */; };
+		EC181E892B7BF0FA00E5607B /* UserDefaultsUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */; };
 		EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */; };
 		EC4188702B6C111700A9E649 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41886F2B6C111700A9E649 /* LoginViewModel.swift */; };
 		EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4188712B6C118D00A9E649 /* LoginInfo.swift */; };
@@ -60,6 +64,10 @@
 		4812423D31EF09C7A0B03200 /* Pods-DogRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.release.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.release.xcconfig"; sourceTree = "<group>"; };
 		A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogInfoViewController.swift; sourceTree = "<group>"; };
+		EC181E7C2B7BB7B700E5607B /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		EC181E862B7BF0CF00E5607B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUserRepository.swift; sourceTree = "<group>"; };
 		EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogRun.entitlements; sourceTree = "<group>"; };
 		EC41886F2B6C111700A9E649 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -148,6 +156,24 @@
 				EC5DCBBB2B6CE80F00D87A69 /* MainViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EC181E7B2B7BB7B700E5607B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E7C2B7BB7B700E5607B /* APIService.swift */,
+				EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EC181E852B7BF05200E5607B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E862B7BF0CF00E5607B /* UserRepository.swift */,
+				EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		EC4BDCE52B6C007B00F14872 /* Util */ = {
@@ -245,7 +271,9 @@
 		ECC50A502B44CF7400028428 /* DogRun */ = {
 			isa = PBXGroup;
 			children = (
-				EC5DCBC12B6D0FED00D87A69 /* Network */,
+
+				EC181E852B7BF05200E5607B /* Repositories */,
+				EC181E7B2B7BB7B700E5607B /* Network */,
 				EC4BDCE52B6C007B00F14872 /* Util */,
 				EC12E4352B617F1700EC5DF9 /* View */,
 				EC8106E22B5A4B25006A2952 /* Constants */,
@@ -433,13 +461,17 @@
 				EC4BDCE42B6BF7B900F14872 /* ResponseDogInfoData.swift in Sources */,
 				ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */,
 				EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */,
+				EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */,
+				EC181E832B7BBDFB00E5607B /* APIEndpoint.swift in Sources */,
 				EC4BDCDD2B6BEAE600F14872 /* AppConstants.swift in Sources */,
 				EC8106F32B5A4B25006A2952 /* LayoutConstants.swift in Sources */,
+				EC181E892B7BF0FA00E5607B /* UserDefaultsUserRepository.swift in Sources */,
 				EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */,
 				EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */,
 				EC5E01502B62CDB40046CE7B /* DogInfo.swift in Sources */,
 				EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */,
 				EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */,
+				EC181E802B7BB7B700E5607B /* APIService.swift in Sources */,
 				EC8106F02B5A4B25006A2952 /* UserDefaultsKeys.swift in Sources */,
 				EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */,
 				EC12E4342B617EAD00EC5DF9 /* DogInfoViewController.swift in Sources */,
