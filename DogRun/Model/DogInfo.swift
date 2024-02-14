@@ -14,5 +14,17 @@ struct DogInfo: Codable {
     var gender: String
     var size: String
     
+    // 파라미터 변환
+    func params() -> [String: Any] {
+        return [
+            "uid": uid,
+            "name": name,
+            "birth": birth,
+            "breed": breed,
+            "gender": gender,
+            "size": size
+        ]
+    }
+    
 }
 
