@@ -6,7 +6,7 @@
 import UIKit
 import Alamofire
 
-class LoginViewModel {
+final class LoginViewModel {
     
     var loginInfo: LoginInfo
     var responseData: ResponseLoginData?

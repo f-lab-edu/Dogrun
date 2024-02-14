@@ -55,23 +55,13 @@ final class LoginViewController: UIViewController {
         guard let status = ResponseStatus(rawValue: responseCode) else {
             return
         }
-        switch status {
-            case .alreadyRegistered:
-                // 이미 가입된 계정일 경우 - 홈 이동
-                // 홈화면 이동
-                os_log("Unknown login error", log: .debug)
-            case .firstTimeRegistered:
-                // 첫 가입된 계정일때 - 회원정보 입력
-                let userInfoView = UserInfoViewController()
-                self.navigationController?.setViewControllers([userInfoView], animated: true)
-            
-            case .unknownError:
-                os_log("Unknown login error", log: .debug)
-            case .editUserInfo:
-                os_log("Unknown login error", log: .debug)
-            case .editDogInfo:
-                os_log("Unknown login error", log: .debug)
-            }
+        
+        if status == .firstTimeRegistered {
+            let userInfoView = UserInfoViewController()
+            self.navigationController?.setViewControllers([userInfoView], animated: true)
+        }else{
+            os_log("Unknown login error", log: .debug)
+        }
     }
   
 }
@@ -127,7 +117,7 @@ extension LoginViewController {
         [logoImageView, welcomeLabel, btnAppleLogin].forEach({view.addSubview($0)})
 
         // 로고 이미지 뷰
-        self.logoImageView.snp.makeConstraints({
+        logoImageView.snp.makeConstraints({
             $0.width.equalTo(50)
             $0.height.equalTo(50)
             $0.centerX.equalToSuperview()
@@ -135,15 +125,15 @@ extension LoginViewController {
         })
         
         // 서비스 라벨
-        self.welcomeLabel.snp.makeConstraints({
+        welcomeLabel.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(30)
-            $0.top.equalTo(self.logoImageView.snp.bottom).offset(20)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(20)
         })
         
         // 애플로그인 버튼
-        self.btnAppleLogin.snp.makeConstraints({
+        btnAppleLogin.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(50)
-            $0.top.equalTo(self.welcomeLabel.snp.bottom).offset(60)
+            $0.top.equalTo(welcomeLabel.snp.bottom).offset(60)
             $0.height.equalTo(50)
         })
     }
@@ -157,7 +147,7 @@ extension LoginViewController {
     private func initLogo(){
         logoImageView.image = UIImage(named: "logo")
         logoImageView.tintColor = .systemGray
-        self.logoImageView.contentMode = .scaleAspectFit
+        logoImageView.contentMode = .scaleAspectFit
     }
     
     private func initWelcomeLabel(){

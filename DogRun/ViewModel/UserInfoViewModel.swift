@@ -9,44 +9,35 @@ import Alamofire
 import OSLog
 
 
-class UserInfoViewModel {
+final class UserInfoViewModel {
    
     
-    var persistenceService: ApiService
+    var persistenceService: APIService
     
     
-    init(persistenceService: ApiService) {
+    init(persistenceService: APIService) {
         self.persistenceService = persistenceService
     }
 
     func update(data: UserInfo, completion: @escaping (Bool) -> Void) {
         Task {
-            do {
-      
-                let responseData = try await persistenceService.updateUserInfo(data: data)
-                // 성공적인 응답 코드를 확인하고 데이터 저장
-                if isSuccessResponse(code: responseData.code) {
-                    do {
-                        try UserDefault().saveUserInfo(data: responseData.data!, keys: "userInfos")
-                        completion(true) // 성공적으로 저장되었음을 클로저를 통해 외부에 알림
-                    } catch {
-                        completion(false) // 데이터 저장 실패를 클로저를 통해 외부에 알림
-                        OSLog.message(.error, "data save fail")
-                    }
-                }
+            do { 
+                let response = try await persistenceService.updateUserInfo(data: data)
+                guard let response else { return completion(false)}
+                
+                // 데이터 저장
+                let userRepository: UserRepository = UserDefaultsUserRepository()
+                userRepository.setUserInfo(userInfo: data)
+                completion(true)
             } catch {
                 completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
             }
         }
     }
- 
     
     // 리턴코드 체크
     private func isSuccessResponse(code: Int?) -> Bool {
         guard let valid = code else { return false }
         return valid == ResponseStatus.success.rawValue
     }
-    
-  
-    
 }

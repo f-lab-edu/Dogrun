@@ -25,16 +25,13 @@ final class DogInfoViewController: UIViewController {
     private var captionDogSize: UILabel!
     
     private let dognameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfDogName.rawValue.localized )
-    
     private let dogBreedTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfDogBreed.rawValue.localized )
-    
     private let dogAgeTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.rawValue.localized )
     
     private lazy var genderSegmentedControl = UISegmentedControl(items: genderArray)
-    
     private lazy var sizeSegmentedControl = UISegmentedControl(items: sizeArray)
     
-    var btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult))
+    var btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(update))
     
     var viewModel: DogInfoViewModel?
     
@@ -142,14 +139,14 @@ final class DogInfoViewController: UIViewController {
         }
     }
   
-    
+    // TODO: unit test 후 private 추가
     func requestViewModel(_ userId: String,_ name: String,_ birth: String,_ breed: String,_ size: String,_ gender: String){
         
         var editDogInfo = DogInfo(uid: userId, name: name, breed: breed, birth: birth, gender: gender, size: size)
         
         viewModel = DogInfoViewModel(viewController: self, dogInfo: editDogInfo)
         
-        viewModel?.submitResult { [weak self] error in
+        viewModel?.update { [weak self] error in
             guard let error = error else {
                 // TODO : 화면 이동 
                 return
