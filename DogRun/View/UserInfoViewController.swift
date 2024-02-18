@@ -67,15 +67,15 @@ final class UserInfoViewController: UIViewController {
     private func updateUserInfo(data: UserInfo){
         viewModel?.update(data: data) { success in
             if success {
-                OSLog.message(.default, "saved successfully")
+                OSLog.message(.default, "update done")
             } else {
-                OSLog.message(.debug, "saved fail")
+                OSLog.message(.debug, "update fail")
             }
         }
     }
     
     private func showAlert(message: String) {
-        Utils().showAlert(message: message, vc: self)
+        Utils.showAlert(message: message, vc: self)
     }
 
     private func validateInput() -> (nickname: String?, birth: String?, selectArea: String?) {
@@ -93,7 +93,6 @@ final class UserInfoViewController: UIViewController {
         }
         return (nicknameTextField.text, birthdateTextField.text, selectArea)
     }
-
 }
  
 // MARK: - picker view 설정
@@ -144,7 +143,7 @@ extension UserInfoViewController {
     }
 }
 
-// MARK: - layout sub method
+// MARK: - layout sub methods
 extension UserInfoViewController {
     
     func initViewName(){

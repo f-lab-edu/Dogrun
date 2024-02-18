@@ -21,49 +21,29 @@ final class LoginViewController: UIViewController {
     let btnAppleLogin = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
 
     var viewModel: LoginViewModel?
+    var loginInfo: LoginInfo?
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
-        viewModel = LoginViewModel(loginInfo: LoginInfo(uid: "", name: "", email: ""))
         layout()
         initView()
     }
      
-    private func requestApi(_ userId: String,_ nickName: String,_ email: String){
-
-        let loginInfo = LoginInfo(uid: userId, name: nickName, email: email)
-
-        viewModel = LoginViewModel(loginInfo: loginInfo)
-        
-        viewModel?.submitResult { [weak self] error in
-            
-            guard let self = self else { return }
-
-              if let error = error {
-                  // TODO: - need to error alert
-              } else {
-                  // 에러가 없을 경우 화면을 이동.
-                  guard let code = viewModel?.responseData?.code else { return }
-                  moveToNext(code)
-              }
+    private func signIn(data: LoginInfo){
+ 
+        viewModel?.signIn(data: data) { success in
+            if success {
+                OSLog.message(.default, "sign in done")
+                // TODO: 추후 분기처리 이동
+                let userInfoView = UserInfoViewController()
+                self.navigationController?.setViewControllers([userInfoView], animated: true)
+            } else {
+                OSLog.message(.debug, "sign in fail")
+            }
         }
     }
      
-    // 화면 분기처리 이동
-    private func moveToNext(_ responseCode: Int){
-        guard let status = ResponseStatus(rawValue: responseCode) else {
-            return
-        }
-        
-        if status == .firstTimeRegistered {
-            let userInfoView = UserInfoViewController()
-            self.navigationController?.setViewControllers([userInfoView], animated: true)
-        }else{
-            os_log("Unknown login error", log: .debug)
-        }
-    }
-  
+    
 }
 
 // MARK: - apple login delegate
@@ -77,7 +57,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             let fullName = "\(appleIDCredential.fullName)"
             let email = "\(appleIDCredential.email)"
             
-            requestApi(userIdentifier, fullName, email)
+            loginInfo = LoginInfo(uid: userIdentifier, name: fullName, email: email)
+            signIn(data: loginInfo!)
          }
 
     }
@@ -114,9 +95,9 @@ extension LoginViewController {
     private func layout(){
         
         self.view.backgroundColor = .white
-        [logoImageView, welcomeLabel, btnAppleLogin].forEach({view.addSubview($0)})
 
         // 로고 이미지 뷰
+        view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints({
             $0.width.equalTo(50)
             $0.height.equalTo(50)
@@ -125,12 +106,14 @@ extension LoginViewController {
         })
         
         // 서비스 라벨
+        view.addSubview(welcomeLabel)
         welcomeLabel.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(30)
             $0.top.equalTo(logoImageView.snp.bottom).offset(20)
         })
         
         // 애플로그인 버튼
+        view.addSubview(btnAppleLogin)
         btnAppleLogin.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.top.equalTo(welcomeLabel.snp.bottom).offset(60)

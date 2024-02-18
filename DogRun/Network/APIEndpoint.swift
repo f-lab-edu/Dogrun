@@ -7,24 +7,23 @@
 
 
 enum APIEndpoint {
-    
-    case createUser
+ 
+    case signIn
     case updateUser
     case updateDog
     case retrieveMainData
 
     var urlString: String {
         let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
-        
         switch self {
-        case .createUser:
-           return "\(baseUrl)/createUser"
         case .updateUser:
-           return "\(baseUrl)/updateUser"
+            return "\(baseUrl)/updateUser"
         case .updateDog:
-           return "\(baseUrl)/updateDog"
+            return "\(baseUrl)/updateDog"
         case .retrieveMainData:
-           return "\(baseUrl)/retrieveMainData"
+            return "\(baseUrl)/retrieveMainData"
+        case .signIn:
+            return "\(baseUrl)/signIn"
         }
     }
 }
