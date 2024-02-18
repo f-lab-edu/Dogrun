@@ -9,43 +9,22 @@ import Alamofire
 
 class MainViewModel {
     
-    var uid: String?
-    var responseData: ResponseMainData?
-    var error: Error?
+    var persistenceService: APIService
     
-    init(uid: String) {
-        self.uid = uid
+    init(persistenceService: APIService) {
+        self.persistenceService = persistenceService
     }
 
-    func submitResult(completion: @escaping (Error?) -> Void) {
-        
-        let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
-        // login url
-        let apiUrl = "\(LocalizationKeys.baseUrl.rawValue.localized)/home?uid=\(uid)"
-        
-        AF.request(apiUrl).responseJSON { responseData in
-            switch responseData.result {
-            case .success:
-                do {
-                    self.responseData = try JSONDecoder().decode(ResponseMainData.self, from: responseData.data!)
-                    self.checkCode(completion: completion)
-                    completion(nil)
-                } catch {
-                    completion(error)
-                }
-
-            case .failure(let error):
-                completion(error)
+    func retrieve(uid: String, completion: @escaping (Bool) -> Void) {
+        Task {
+            do {
+                let response = try await persistenceService.retrieveMainData(data: uid)
+                guard let response else { return completion(false)} 
+                completion(true)
+            } catch {
+                completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
             }
         }
-    }
-    
-    // 리턴코드 체크
-    private func checkCode(completion: @escaping (Error?) -> Void) {
-        
-        guard let responseData = self.responseData else { return }
-        guard let code = responseData.code else { return  }
-        if code == ResponseStatus.firstTimeRegistered.rawValue || code == ResponseStatus.mainDataInit.rawValue { completion(nil) }
     }
 }
 

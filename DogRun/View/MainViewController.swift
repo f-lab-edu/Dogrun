@@ -6,6 +6,7 @@
 
 import UIKit
 import SnapKit
+import OSLog
 
 final class MainViewController: UIViewController {
     
@@ -13,11 +14,11 @@ final class MainViewController: UIViewController {
     let navigationBar = UINavigationBar()
     let mainImageView =  UIImageView()
     let infoTableView = UITableView()
-    
-    let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo.rawValue)
-    
+ 
+    let userId = AppConstants.dummyUserId
+    var viewModel: MainViewModel?
     var mainInfo: MainInfo?
-    
+    private let service = APIService() 
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: AppConstants.daysOfWeek)
@@ -29,71 +30,84 @@ final class MainViewController: UIViewController {
     
     private let rightBarButtonItem = UIBarButtonItem(title: "setting", style: .plain, target: self, action: #selector(rightBarButtonTapped))
     
-    var viewModel: MainViewModel?
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel = MainViewModel(persistenceService: service)
         layout()
-        initView()
+        
+        // 데이터 초기 요청
+        retriveData(uid: userId)
     }
 
-     private func layout() {
-         
+    private func layout() {
+     
         let bgColor: UIColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         self.view.backgroundColor = bgColor
-        [navigationBar, mainImageView,segmentedControl,infoTableView].forEach({view.addSubview($0)})
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        initImageView()
+        initSegmentedCtl()
+        initTableView()
+    }
+    
+    private func retriveData(uid: String){
+        viewModel?.retrieve(uid: uid) { success in
+            if success {
+                OSLog.message(.default, "retrieve done")
+            } else {
+                OSLog.message(.debug, "retrieve fail")
+            }
+        }
+    }
+}
 
-        self.mainImageView.snp.makeConstraints {
+// MARK: - layout sub methods
+extension MainViewController{
+    
+    func initImageView(){
+        
+        mainImageView.image = UIImage(named: "profile")
+        mainImageView.layer.cornerRadius = 100
+        mainImageView.clipsToBounds = true
+        mainImageView.contentMode = .scaleAspectFill
+        mainImageView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        mainImageView.layer.shadowOpacity = 0.7
+        mainImageView.layer.shadowRadius = 5
+        mainImageView.layer.shadowColor = UIColor.gray.cgColor
+        
+        view.addSubview(mainImageView)
+        mainImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(100)
             $0.width.height.equalTo(200)
         }
-
-
-        self.segmentedControl.snp.makeConstraints {
+        
+    }
+    
+    func initSegmentedCtl(){
+        
+        view.addSubview(segmentedControl)
+        segmentedControl.snp.makeConstraints {
             $0.top.equalTo(mainImageView.snp.bottom).offset(50)
             $0.left.right.equalToSuperview()
             $0.height.equalTo(50)
         }
-
-        self.infoTableView.snp.makeConstraints {
+    }
+    
+    func initTableView(){
+        
+        view.addSubview(infoTableView)
+        infoTableView.snp.makeConstraints {
             $0.top.equalTo(segmentedControl.snp.bottom)
             $0.left.right.bottom.equalToSuperview()
         }
-     }
+    }
     
-    
-    private func initView(){
-         
-        self.mainImageView.image = UIImage(named: "profile")
-        self.mainImageView.layer.cornerRadius = 100
-        self.mainImageView.clipsToBounds = true
-        self.mainImageView.contentMode = .scaleAspectFill
-        self.mainImageView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        self.mainImageView.layer.shadowOpacity = 0.7
-        self.mainImageView.layer.shadowRadius = 5
-        self.mainImageView.layer.shadowColor = UIColor.gray.cgColor
-        
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        
-        
-        viewModel = MainViewModel(uid: userId ?? "")
-        
-        viewModel?.submitResult { [weak self] error in
-            guard let error = error else {
-                
-                // TODO: response data init
-                return
-            }
-        }
-        
-     }
-   
 }
 
+
 // MARK: - click event (objc)
-extension MainViewController {
+extension MainViewController{
      
     @objc func rightBarButtonTapped() {
     // 오른쪽 아이콘 탭 시 동작할 내용

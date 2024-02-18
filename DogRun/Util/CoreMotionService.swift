@@ -4,6 +4,7 @@
 //
 //
 import CoreMotion
+import OSLog
 
 final class CoreMotionService {
     
@@ -11,8 +12,6 @@ final class CoreMotionService {
     private var pedoMeter = CMPedometer()
     private var timer: Timer?
     var startTime: Date?
-    
-     
     var stepUpdateHandler: ((Int) -> Void)?
     
     func startScheduler() {
@@ -23,7 +22,6 @@ final class CoreMotionService {
                                       userInfo: nil,
                                       repeats: true)
     }
-    
     func stopScheduler() {
         timer?.invalidate() // 타이머 종료
         timer = nil
@@ -31,19 +29,15 @@ final class CoreMotionService {
     
     @objc private func checkSteps() {
         let nowDate = Date()
-        
         guard let todayStartDate = startTime else { return }
-        
-        print("todayStartDate : \(todayStartDate) / nowDate : \(nowDate)")
-        
         pedoMeter.queryPedometerData(from: todayStartDate, to: nowDate) { data, error in
             if let error {
-                print("CoreMotionService.queryPedometerData Error: \(error)")
+                OSLog.message(.debug, "CoreMotionService.queryPedometerData Error: \(error)")
                 return
             }
-            
+            // 발걸음 수
             if let steps = data?.numberOfSteps {
-                print("steps : \(steps)")
+                OSLog.message(.debug, "steps : \(steps)")
                 self.stepUpdateHandler?(Int(steps))
             }
         }

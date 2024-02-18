@@ -6,68 +6,32 @@
 //
 import UIKit
 import Alamofire
+import OSLog
 
-class UserInfoViewModel {
-    var userInfo: UserInfo
-    var responseData: ResponseLoginData?
-    var error: Error?
+
+final class UserInfoViewModel {
+   
+    var persistenceService: APIService
     
-    init(userInfo: UserInfo) {
-        self.userInfo = userInfo
+    init(persistenceService: APIService) {
+        self.persistenceService = persistenceService
     }
 
-    func submitResult(completion: @escaping (Error?) -> Void) {
-        
-        let baseUrl = LocalizationKeys.baseUrl.rawValue.localized
-        let apiUrl = "\(baseUrl)/UserEdit"
-        
-        AF.request(apiUrl, method: .post, parameters: params(data: userInfo), encoding: JSONEncoding.default).responseData { responseData in
-            switch responseData.result {
-            case .success:
-                do {
-                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: responseData.value!)
-                    self.checkCode()
-                } catch {
-                    completion(error)
-                }
-
-            case .failure(let error):
-                completion(error)
+    func update(data: UserInfo, completion: @escaping (Bool) -> Void) {
+        Task {
+            do { 
+                let response = try await persistenceService.updateUserInfo(data: data)
+                guard let response else { return completion(false)}
+                saveLocal(data: response)
+                completion(true)
+            } catch {
+                completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
             }
         }
     }
-    
-    // 리턴코드 체크
-    private func checkCode(){
-        
-        guard let responseData = self.responseData else { return }
-        guard let code = responseData.code else { return  }
-        if code == ResponseStatus.editUserInfo.rawValue { saveData() }
-    }
     // 데이터 저장
-    private func saveData(){
-        do {
-            // UserInfo 인스턴스를 JSON 데이터로 인코딩
-            let encodedData = try JSONEncoder().encode(responseData?.data)
-            // JSON 데이터를 UserDefaults에 저장
-            UserDefaults.standard.set(encodedData, forKey: "userInfos")
-            UserDefaults.standard.synchronize()
-        } catch {
-            print("Error encoding UserInfo: \(error)")
-        }
-    }
-    
-    // 파라미터 변환
-    private func params(data: UserInfo) -> [String: Any]{
-        
-        let parameters: [String: Any] = [
-            "uid": data.uid,
-            "name": data.name,
-            "birth": data.birth,
-            "area": data.area,
-            "gender": data.gender
-        ]
-        
-        return parameters
+    private func saveLocal(data: UserInfo){
+        let userRepository = UserDefaultsRepository()
+        userRepository.setUserInfo(userInfo: data, keys: "userInfos")
     }
 }
