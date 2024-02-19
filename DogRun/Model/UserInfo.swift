@@ -5,10 +5,23 @@
 //  Created by 이규관 on 2024/01/18.
 //
 
-struct UserInfo {
-    var userId: String
-    var nickName: String
+struct UserInfo: Codable {
+    
+    var uid: String
+    var email: String
+    var name: String
     var birth: String
     var area: String
-    var selectedGender: String
+    var gender: Gender
+    
+    // 파라미터 변환
+    func params() -> [String: Any] {
+        return [
+            "uid": uid,
+            "name": name,
+            "birth": birth,
+            "area": area,
+            "gender": gender
+        ]
+    }
 }

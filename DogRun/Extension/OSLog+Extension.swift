@@ -1,8 +1,7 @@
 //
-//  OSLog.swift
+//  OSLog+Extension.swift
 //  DogRun
 //
-//  Created by 이규관 on 2024/01/15.
 //
 
 import Foundation
@@ -17,6 +16,6 @@ extension OSLog {
     static let error = OSLog(subsystem: subsystem, category: "Error")
     
     static func message(_ type: OSLogType, log: OSLog = .default, _ message: String) {
-            os_log(type, log: log, message)
+        os_log(type, log: log, "%@", message)
     }
 }

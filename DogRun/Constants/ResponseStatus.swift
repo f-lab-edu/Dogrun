@@ -7,6 +7,9 @@
 
 enum ResponseStatus: Int {
     
+    // response 성공
+    case success = 200
+    
     // 이미 회원가입
     case alreadyRegistered = 253
     
@@ -15,6 +18,9 @@ enum ResponseStatus: Int {
     
     // 회원 정보 수정
     case editUserInfo = 257
+     
+    // 펫 정보 수정
+    case editDogInfo = 258
     
     // 서버 에러
     case unknownError = 500

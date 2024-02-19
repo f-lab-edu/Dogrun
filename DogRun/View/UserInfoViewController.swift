@@ -10,11 +10,11 @@ import Alamofire
 import OSLog
 import SnapKit
 
+
 final class UserInfoViewController: UIViewController {
     
-    let sidoArea = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"]
-    let genderArray = ["남성", "여성"]
-    let yearMonthDayFormat = "yyyy-MM-dd"
+    let sidoArea = AppConstants.sidoArea
+    let genderArray = AppConstants.genderArray
     
     private var captionNickname: UILabel!
     private var captionBirth: UILabel!
@@ -24,15 +24,14 @@ final class UserInfoViewController: UIViewController {
     private lazy var selectedGender: String = ""
     let numberOfComponents = 1
     
-    
     // 닉네임 필드
-    private let nicknameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfNickname.localized   )
+    private let nicknameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfNickname.rawValue.localized   )
 
     // 생년월일 필드
-    private let birthdateTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.localized ), inputView: UIDatePicker())
+    private let birthdateTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfBirth.rawValue.localized, inputView: UIDatePicker())
 
     // 성별 세그먼트
-    private let genderSegmentedControl = UISegmentedControl(items: genderArray)
+    private lazy var genderSegmentedControl = UISegmentedControl(items: genderArray)
     
     // 지역 picker
     private let locationPickerView = UIPickerView()
@@ -41,11 +40,13 @@ final class UserInfoViewController: UIViewController {
     private let datePicker = UIDatePicker.makeCustomDatePicker(target: self, action: #selector(datePickerValueChanged(_:)))
     
     // 양식 제출 버튼
-    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(submitResult), title: LocalizationKeys.btnConfirm.localized)
+    private let btnSubmit = UIButton.makeSubmitButton(target: self, action: #selector(update))
+
+    var viewModel: UserInfoViewModel?
+    var userInfo: UserInfo?
     
-    var viewModel: UserInfoViewModel
-    
-    
+    private let service = APIService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -53,15 +54,17 @@ final class UserInfoViewController: UIViewController {
         // UITapGestureRecognizer를 사용하여 화면 터치 이벤트를 감지
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
-        makeView()
+        
+        
+        viewModel = UserInfoViewModel(persistenceService: service)
+        layout()
     }
     
-    private func makeView() {
-        
-        
+    
+    private func layout() {
         
         // 캡션 (닉네임)
-        captionNickname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelName.localized))
+        captionNickname = UILabel.makeCaptionLabel(text: LocalizationKeys.labelName.rawValue.localized)
         view.addSubview(captionNickname)
         captionNickname.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(LayoutConstants.topOffset)
@@ -77,7 +80,7 @@ final class UserInfoViewController: UIViewController {
         }
         
         // 캡션 (생년월일)
-        captionBirth = UILabel.makeCaptionLabel(text: LocalizationKeys.labelBirth.localized)
+        captionBirth = UILabel.makeCaptionLabel(text: LocalizationKeys.labelBirth.rawValue.localized)
         view.addSubview(captionBirth)
         captionBirth.snp.makeConstraints {
             $0.top.equalTo(nicknameTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -93,7 +96,7 @@ final class UserInfoViewController: UIViewController {
         }
         
         // 캡션 (성별)
-        captionGender = UILabel.makeCaptionLabel(text: LocalizationKeys.labelGender.localized)
+        captionGender = UILabel.makeCaptionLabel(text: LocalizationKeys.labelGender.rawValue.localized)
         view.addSubview(captionGender)
         captionGender.snp.makeConstraints {
             $0.top.equalTo(birthdateTextField.snp.bottom).offset(LayoutConstants.topOffset)
@@ -109,7 +112,7 @@ final class UserInfoViewController: UIViewController {
         }
         
         // 캡션 (지역)
-        captionArea = UILabel.makeCaptionLabel(text: LocalizationKeys.labelArea.localized)
+        captionArea = UILabel.makeCaptionLabel(text: LocalizationKeys.labelArea.rawValue.localized)
         view.addSubview(captionArea)
         captionArea.snp.makeConstraints {
             $0.top.equalTo(genderSegmentedControl.snp.bottom).offset(LayoutConstants.topOffset)
@@ -137,82 +140,19 @@ final class UserInfoViewController: UIViewController {
         // UITextField에 UIDatePicker 연결
         birthdateTextField.inputView = datePicker
     }
-    
-    // TODO: 다음 버전에 반영예정
-    @objc func submitResult() {
-        // 저장된 로그인 uid
-        guard let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo) else { return }
-        // 닉네임, 성별, 지역 값
-        guard let nickName = nicknameTextField.text, !nickName.isEmpty else { showAlert(message: LocalizationKeys.alertName.localized); return }
-        guard let birth = birthdateTextField.text, !birth.isEmpty else { showAlert(message: LocalizationKeys.alertBirth.localized); return }
-        guard let area = selectArea, !area.isEmpty else { showAlert(message: LocalizationKeys.alertArea.localized); return }
-        selectedGender = genderArray[genderSegmentedControl.selectedSegmentIndex]
-        
-        requestApi(userId, nickName, birth, area)
-    }
-    
-    // 일자 변경시 이벤트 처리
-    @objc func datePickerValueChanged(_ datePicker: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = yearMonthDayFormat
-        let selectedDate = dateFormatter.string(from: datePicker.date)
-        birthdateTextField.text = selectedDate
-    }
-    
-    // 미기입 시 alert 생성
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: LocalizationKeys.alertTitle.localized, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: LocalizationKeys.alertConfirm.localized, style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-        // 경고창 표시 후 메소드 종료
-        return
-    }
-    
-    // UITapGestureRecognizer에 대한 핸들러 메서드
-    @objc func handleTap() {
-        // picker 창을 내리기 위해 추가
-        view.endEditing(true)
-    }
-    
-    // TODO: 다음 버전에 반영예정
-    private func requestApi(_ userId: String,_ nickName: String,_ birth: String,_ area: String,){
-
-        let userEditInfo = UserInfo(userId: userId, nickName: nickName, birth: birth, area: area, selectedGender: self.selectedGender)
-        viewModel = UserInfoViewModel(userInfo: userEditInfo)
-        viewModel.submitResult { [weak self] error in
-             
-            if let error = error {
-                print("API Error: \(error)")
+    private func updateUserInfo(data: UserInfo){
+        viewModel?.update(data: data) { success in
+            if success {
+                OSLog.message(.default, "saved successfully")
             } else {
-                self.editCheck()
+                OSLog.message(.debug, "saved fail")
             }
-        }
-    }
-    
-    // 화면 이동
-    private func editCheck(_ responseCode: Int){
-        
-        guard let responseData = viewModel.responseData else { return }
-
-        if responseData.code == ResponseStatus.editUserInfo.rawValue {
-            
-            var userInfo = responseData.data
-            
-            do {
-                // UserInfo 인스턴스를 JSON 데이터로 인코딩
-                let encodedData = try JSONEncoder().encode(userInfo)
-                // JSON 데이터를 UserDefaults에 저장
-                UserDefaults.standard.set(encodedData, forKey: "userInfo")
-            } catch {
-                print("Error encoding UserInfo: \(error)")
-            }
-            
-        } else {
-            print("need to check error")
         }
     }
 }
+ 
+// MARK: - picker view 설정
+
 extension UserInfoViewController: UIPickerViewDataSource{
     // UIPickerViewDataSource 구현
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -227,7 +167,40 @@ extension UserInfoViewController: UIPickerViewDelegate {
     // UIPickerViewDelegate 구현
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // 각 지역의 텍스트 반환
-        selectArea = sidoArea[row]
-        return selectArea
+        return sidoArea[row]
+    }
+}
+
+// MARK: - view click event (objc)
+
+extension UserInfoViewController {
+    
+    // 제출버튼 클릭
+    @objc func submitResult() {
+        // 저장된 로그인 uid
+        guard let userId = UserDefaults.standard.string(forKey: UserDefaultsKeys.userInfo.rawValue) else { return }
+        
+        // 닉네임, 성별, 지역 값
+        guard let nickName = nicknameTextField.text, !nickName.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertName.rawValue.localized, vc: self); return }
+        guard let birth = birthdateTextField.text,  !birth.isEmpty else { Utils().showAlert(message: LocalizationKeys.alertBirth.rawValue.localized, vc: self); return }
+        guard let area = selectArea, !area.isEmpty   else { Utils().showAlert(message: LocalizationKeys.alertArea.rawValue.localized, vc: self); return }
+        selectedGender = genderArray[genderSegmentedControl.selectedSegmentIndex]
+        
+        userInfo = UserInfo(uid: userId, email: "", name: nickName, birth: birth, area: area, gender: Gender(rawValue: selectedGender)!)
+        updateUserInfo(data: userInfo!)
+    }
+    
+    // 일자 변경시 이벤트 처리
+    @objc func datePickerValueChanged(_ datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormat.yearMonthDay
+        let selectedDate = dateFormatter.string(from: datePicker.date)
+        birthdateTextField.text = selectedDate
+    }
+    
+    // UITapGestureRecognizer에 대한 핸들러 메서드
+    @objc func handleTap() {
+        // picker 창을 내리기 위해 추가
+        view.endEditing(true)
     }
 }

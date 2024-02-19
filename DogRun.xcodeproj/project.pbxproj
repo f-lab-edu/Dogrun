@@ -8,59 +8,107 @@
 
 /* Begin PBXBuildFile section */
 		A0C3F68C82C50F41FF61EA2E /* Pods_DogRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */; };
-		EC181E712B7BB03C00E5607B /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E642B7BB03B00E5607B /* UserDefaultsKeys.swift */; };
-		EC181E722B7BB03C00E5607B /* LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E652B7BB03B00E5607B /* LocalizationKeys.swift */; };
-		EC181E732B7BB03C00E5607B /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E662B7BB03B00E5607B /* DateFormat.swift */; };
-		EC181E742B7BB03C00E5607B /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E672B7BB03B00E5607B /* LayoutConstants.swift */; };
-		EC181E752B7BB03C00E5607B /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E682B7BB03B00E5607B /* ResponseStatus.swift */; };
-		EC181E762B7BB03C00E5607B /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6A2B7BB03B00E5607B /* UserInfoViewModel.swift */; };
-		EC181E772B7BB03C00E5607B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6C2B7BB03B00E5607B /* String+Extension.swift */; };
-		EC181E782B7BB03C00E5607B /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6D2B7BB03B00E5607B /* OSLog.swift */; };
-		EC181E792B7BB03C00E5607B /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E6E2B7BB03B00E5607B /* UIExtensions.swift */; };
-		EC181E7A2B7BB03C00E5607B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E702B7BB03C00E5607B /* UserInfo.swift */; };
+		EC12E4342B617EAD00EC5DF9 /* DogInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */; };
+		EC181E802B7BB7B700E5607B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E7C2B7BB7B700E5607B /* APIService.swift */; };
+		EC181E832B7BBDFB00E5607B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */; };
+		EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E862B7BF0CF00E5607B /* UserRepository.swift */; };
+		EC181E892B7BF0FA00E5607B /* UserDefaultsUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */; };
 		EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */; };
+		EC4188702B6C111700A9E649 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41886F2B6C111700A9E649 /* LoginViewModel.swift */; };
+		EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4188712B6C118D00A9E649 /* LoginInfo.swift */; };
+		EC4BDCD52B6BE6AB00F14872 /* UI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCD42B6BE6AB00F14872 /* UI+Extension.swift */; };
+		EC4BDCD72B6BE6C900F14872 /* OSLog+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCD62B6BE6C900F14872 /* OSLog+Extension.swift */; };
+		EC4BDCDB2B6BE86000F14872 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCDA2B6BE86000F14872 /* Gender.swift */; };
+		EC4BDCDD2B6BEAE600F14872 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCDC2B6BEAE600F14872 /* AppConstants.swift */; };
+		EC4BDCE22B6BF6E500F14872 /* DogInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */; };
+		EC4BDCE42B6BF7B900F14872 /* ResponseDogInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */; };
+		EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE62B6C008800F14872 /* Utils.swift */; };
+		EC5E014E2B6274CC0046CE7B /* DoginfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */; };
+		EC5E01502B62CDB40046CE7B /* DogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E014F2B62CDB40046CE7B /* DogInfo.swift */; };
+		EC8106EC2B5A4B25006A2952 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106DD2B5A4B25006A2952 /* String+Extension.swift */; };
+		EC8106EF2B5A4B25006A2952 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E12B5A4B25006A2952 /* UserInfo.swift */; };
+		EC8106F02B5A4B25006A2952 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E32B5A4B25006A2952 /* UserDefaultsKeys.swift */; };
+		EC8106F12B5A4B25006A2952 /* LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E42B5A4B25006A2952 /* LocalizationKeys.swift */; };
+		EC8106F22B5A4B25006A2952 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E52B5A4B25006A2952 /* DateFormat.swift */; };
+		EC8106F32B5A4B25006A2952 /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E62B5A4B25006A2952 /* LayoutConstants.swift */; };
+		EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E72B5A4B25006A2952 /* ResponseStatus.swift */; };
+		EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */; };
+		EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */; };
+		EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */; };
 		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
 		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
-		ECC50A562B44CF7400028428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* ViewController.swift */; };
+		ECC50A562B44CF7400028428 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* LoginViewController.swift */; };
 		ECC50A592B44CF7400028428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A572B44CF7400028428 /* Main.storyboard */; };
 		ECC50A5B2B44CF7800028428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A5A2B44CF7800028428 /* Assets.xcassets */; };
 		ECC50A5E2B44CF7800028428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC50A5C2B44CF7800028428 /* LaunchScreen.storyboard */; };
-		ECD8D9062B567E6B00CCBE8D /* UserInfo in Resources */ = {isa = PBXBuildFile; fileRef = ECD8D9052B567E6B00CCBE8D /* UserInfo */; };
 		ECD8D9132B567FBA00CCBE8D /* OSLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD8D9122B567FBA00CCBE8D /* OSLog.framework */; };
 		ECD8D9192B56829B00CCBE8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD8D91B2B56829B00CCBE8D /* Localizable.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC5E01482B623F7D0046CE7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECC50A462B44CF7400028428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECC50A4D2B44CF7400028428;
+			remoteInfo = DogRun;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3DBB6D9B1FB7E0704E56EF57 /* Pods-DogRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.debug.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.debug.xcconfig"; sourceTree = "<group>"; };
 		4812423D31EF09C7A0B03200 /* Pods-DogRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogRun.release.xcconfig"; path = "Target Support Files/Pods-DogRun/Pods-DogRun.release.xcconfig"; sourceTree = "<group>"; };
 		A7F90DD715B23013C8331FD5 /* Pods_DogRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC181E642B7BB03B00E5607B /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
-		EC181E652B7BB03B00E5607B /* LocalizationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationKeys.swift; sourceTree = "<group>"; };
-		EC181E662B7BB03B00E5607B /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
-		EC181E672B7BB03B00E5607B /* LayoutConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
-		EC181E682B7BB03B00E5607B /* ResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
-		EC181E6A2B7BB03B00E5607B /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
-		EC181E6C2B7BB03B00E5607B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		EC181E6D2B7BB03B00E5607B /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
-		EC181E6E2B7BB03B00E5607B /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		EC181E702B7BB03C00E5607B /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogInfoViewController.swift; sourceTree = "<group>"; };
+		EC181E7C2B7BB7B700E5607B /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		EC181E862B7BF0CF00E5607B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUserRepository.swift; sourceTree = "<group>"; };
 		EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogRun.entitlements; sourceTree = "<group>"; };
+		EC41886F2B6C111700A9E649 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EC4188712B6C118D00A9E649 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
+		EC4BDCD42B6BE6AB00F14872 /* UI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extension.swift"; sourceTree = "<group>"; };
+		EC4BDCD62B6BE6C900F14872 /* OSLog+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+Extension.swift"; sourceTree = "<group>"; };
+		EC4BDCDA2B6BE86000F14872 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		EC4BDCDC2B6BEAE600F14872 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogInfoViewModel.swift; sourceTree = "<group>"; };
+		EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDogInfoData.swift; sourceTree = "<group>"; };
+		EC4BDCE62B6C008800F14872 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EC5E01442B623F7D0046CE7B /* DogRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoginfoViewControllerTests.swift; sourceTree = "<group>"; };
+		EC5E014F2B62CDB40046CE7B /* DogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfo.swift; sourceTree = "<group>"; };
+		EC8106DD2B5A4B25006A2952 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		EC8106E12B5A4B25006A2952 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EC8106E32B5A4B25006A2952 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		EC8106E42B5A4B25006A2952 /* LocalizationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationKeys.swift; sourceTree = "<group>"; };
+		EC8106E52B5A4B25006A2952 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		EC8106E62B5A4B25006A2952 /* LayoutConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
+		EC8106E72B5A4B25006A2952 /* ResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
+		EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseLoginData.swift; sourceTree = "<group>"; };
 		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC50A512B44CF7400028428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC50A532B44CF7400028428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECC50A552B44CF7400028428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECC50A552B44CF7400028428 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ECC50A582B44CF7400028428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECC50A5A2B44CF7800028428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECC50A5D2B44CF7800028428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECC50A5F2B44CF7800028428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECD8D9052B567E6B00CCBE8D /* UserInfo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UserInfo; sourceTree = "<group>"; };
 		ECD8D9122B567FBA00CCBE8D /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		ECD8D91A2B56829B00CCBE8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECD8D91C2B5682BA00CCBE8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EC5E01412B623F7D0046CE7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ECC50A4B2B44CF7400028428 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,55 +139,101 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC181E622B7BB03B00E5607B /* Network */ = {
+		EC12E4352B617F1700EC5DF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECC50A552B44CF7400028428 /* LoginViewController.swift */,
+				EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */,
+				EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC181E7B2B7BB7B700E5607B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EC181E7C2B7BB7B700E5607B /* APIService.swift */,
+				EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		EC181E632B7BB03B00E5607B /* Constants */ = {
+		EC181E852B7BF05200E5607B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				EC181E642B7BB03B00E5607B /* UserDefaultsKeys.swift */,
-				EC181E652B7BB03B00E5607B /* LocalizationKeys.swift */,
-				EC181E662B7BB03B00E5607B /* DateFormat.swift */,
-				EC181E672B7BB03B00E5607B /* LayoutConstants.swift */,
-				EC181E682B7BB03B00E5607B /* ResponseStatus.swift */,
+				EC181E862B7BF0CF00E5607B /* UserRepository.swift */,
+				EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */,
 			);
-			path = Constants;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
-		EC181E692B7BB03B00E5607B /* ViewModel */ = {
+		EC4BDCE52B6C007B00F14872 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				EC181E6A2B7BB03B00E5607B /* UserInfoViewModel.swift */,
+				EC4BDCE62B6C008800F14872 /* Utils.swift */,
 			);
-			path = ViewModel;
+			path = Util;
 			sourceTree = "<group>";
 		};
-		EC181E6B2B7BB03B00E5607B /* Extension */ = {
+		EC5E01452B623F7D0046CE7B /* DogRunTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC181E6C2B7BB03B00E5607B /* String+Extension.swift */,
-				EC181E6D2B7BB03B00E5607B /* OSLog.swift */,
-				EC181E6E2B7BB03B00E5607B /* UIExtensions.swift */,
+				EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */,
+			);
+			path = DogRunTests;
+			sourceTree = "<group>";
+		};
+		EC8106DC2B5A4B25006A2952 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EC8106DD2B5A4B25006A2952 /* String+Extension.swift */,
+				EC4BDCD42B6BE6AB00F14872 /* UI+Extension.swift */,
+				EC4BDCD62B6BE6C900F14872 /* OSLog+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		EC181E6F2B7BB03C00E5607B /* Model */ = {
+		EC8106E02B5A4B25006A2952 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EC181E702B7BB03C00E5607B /* UserInfo.swift */,
+				EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */,
+				EC8106E12B5A4B25006A2952 /* UserInfo.swift */,
+				EC5E014F2B62CDB40046CE7B /* DogInfo.swift */,
+				EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */,
+				EC4188712B6C118D00A9E649 /* LoginInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EC8106E22B5A4B25006A2952 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				EC8106E32B5A4B25006A2952 /* UserDefaultsKeys.swift */,
+				EC8106E42B5A4B25006A2952 /* LocalizationKeys.swift */,
+				EC8106E52B5A4B25006A2952 /* DateFormat.swift */,
+				EC8106E62B5A4B25006A2952 /* LayoutConstants.swift */,
+				EC8106E72B5A4B25006A2952 /* ResponseStatus.swift */,
+				EC4BDCDA2B6BE86000F14872 /* Gender.swift */,
+				EC4BDCDC2B6BEAE600F14872 /* AppConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		EC8106EA2B5A4B25006A2952 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */,
+				EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */,
+				EC41886F2B6C111700A9E649 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		ECC50A452B44CF7400028428 = {
 			isa = PBXGroup;
 			children = (
 				ECC50A502B44CF7400028428 /* DogRun */,
+				EC5E01452B623F7D0046CE7B /* DogRunTests */,
 				ECC50A4F2B44CF7400028428 /* Products */,
 				0DB291EF2D25C53496A613E5 /* Pods */,
 				6D9070D74ABE17DEF8069188 /* Frameworks */,
@@ -150,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC50A4E2B44CF7400028428 /* DogRun.app */,
+				EC5E01442B623F7D0046CE7B /* DogRunTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,16 +252,17 @@
 		ECC50A502B44CF7400028428 /* DogRun */ = {
 			isa = PBXGroup;
 			children = (
-				EC181E632B7BB03B00E5607B /* Constants */,
-				EC181E6B2B7BB03B00E5607B /* Extension */,
-				EC181E6F2B7BB03C00E5607B /* Model */,
-				EC181E622B7BB03B00E5607B /* Network */,
-				EC181E692B7BB03B00E5607B /* ViewModel */,
-				ECD8D9052B567E6B00CCBE8D /* UserInfo */,
+				EC181E852B7BF05200E5607B /* Repositories */,
+				EC181E7B2B7BB7B700E5607B /* Network */,
+				EC4BDCE52B6C007B00F14872 /* Util */,
+				EC12E4352B617F1700EC5DF9 /* View */,
+				EC8106E22B5A4B25006A2952 /* Constants */,
+				EC8106DC2B5A4B25006A2952 /* Extension */,
+				EC8106E02B5A4B25006A2952 /* Model */,
+				EC8106EA2B5A4B25006A2952 /* ViewModel */,
 				EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */,
 				ECC50A512B44CF7400028428 /* AppDelegate.swift */,
 				ECC50A532B44CF7400028428 /* SceneDelegate.swift */,
-				ECC50A552B44CF7400028428 /* ViewController.swift */,
 				ECC50A572B44CF7400028428 /* Main.storyboard */,
 				ECC50A5A2B44CF7800028428 /* Assets.xcassets */,
 				ECC50A5C2B44CF7800028428 /* LaunchScreen.storyboard */,
@@ -180,6 +276,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EC5E01432B623F7D0046CE7B /* DogRunTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC5E014C2B623F7D0046CE7B /* Build configuration list for PBXNativeTarget "DogRunTests" */;
+			buildPhases = (
+				EC5E01402B623F7D0046CE7B /* Sources */,
+				EC5E01412B623F7D0046CE7B /* Frameworks */,
+				EC5E01422B623F7D0046CE7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC5E01492B623F7D0046CE7B /* PBXTargetDependency */,
+			);
+			name = DogRunTests;
+			productName = DogRunTests;
+			productReference = EC5E01442B623F7D0046CE7B /* DogRunTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ECC50A4D2B44CF7400028428 /* DogRun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECC50A622B44CF7800028428 /* Build configuration list for PBXNativeTarget "DogRun" */;
@@ -209,6 +323,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					EC5E01432B623F7D0046CE7B = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = ECC50A4D2B44CF7400028428;
+					};
 					ECC50A4D2B44CF7400028428 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -229,11 +347,19 @@
 			projectRoot = "";
 			targets = (
 				ECC50A4D2B44CF7400028428 /* DogRun */,
+				EC5E01432B623F7D0046CE7B /* DogRunTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EC5E01422B623F7D0046CE7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ECC50A4C2B44CF7400028428 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,7 +367,6 @@
 				ECC50A5E2B44CF7800028428 /* LaunchScreen.storyboard in Resources */,
 				ECD8D9192B56829B00CCBE8D /* Localizable.strings in Resources */,
 				EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */,
-				ECD8D9062B567E6B00CCBE8D /* UserInfo in Resources */,
 				ECC50A5B2B44CF7800028428 /* Assets.xcassets in Resources */,
 				ECC50A592B44CF7400028428 /* Main.storyboard in Resources */,
 			);
@@ -292,27 +417,58 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EC5E01402B623F7D0046CE7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5E014E2B6274CC0046CE7B /* DoginfoViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ECC50A4A2B44CF7400028428 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC181E712B7BB03C00E5607B /* UserDefaultsKeys.swift in Sources */,
-				EC181E742B7BB03C00E5607B /* LayoutConstants.swift in Sources */,
-				EC181E762B7BB03C00E5607B /* UserInfoViewModel.swift in Sources */,
-				EC181E792B7BB03C00E5607B /* UIExtensions.swift in Sources */,
-				EC181E752B7BB03C00E5607B /* ResponseStatus.swift in Sources */,
-				EC181E782B7BB03C00E5607B /* OSLog.swift in Sources */,
-				ECC50A562B44CF7400028428 /* ViewController.swift in Sources */,
-				EC181E732B7BB03C00E5607B /* DateFormat.swift in Sources */,
-				EC181E7A2B7BB03C00E5607B /* UserInfo.swift in Sources */,
-				EC181E722B7BB03C00E5607B /* LocalizationKeys.swift in Sources */,
+				EC4188702B6C111700A9E649 /* LoginViewModel.swift in Sources */,
+				EC8106F12B5A4B25006A2952 /* LocalizationKeys.swift in Sources */,
+				EC4BDCD52B6BE6AB00F14872 /* UI+Extension.swift in Sources */,
+				EC8106EC2B5A4B25006A2952 /* String+Extension.swift in Sources */,
+				EC4BDCD72B6BE6C900F14872 /* OSLog+Extension.swift in Sources */,
+				ECC50A562B44CF7400028428 /* LoginViewController.swift in Sources */,
+				EC4BDCE42B6BF7B900F14872 /* ResponseDogInfoData.swift in Sources */,
 				ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */,
-				EC181E772B7BB03C00E5607B /* String+Extension.swift in Sources */,
+				EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */,
+				EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */,
+				EC181E832B7BBDFB00E5607B /* APIEndpoint.swift in Sources */,
+				EC4BDCDD2B6BEAE600F14872 /* AppConstants.swift in Sources */,
+				EC8106F32B5A4B25006A2952 /* LayoutConstants.swift in Sources */,
+				EC181E892B7BF0FA00E5607B /* UserDefaultsUserRepository.swift in Sources */,
+				EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */,
+				EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */,
+				EC5E01502B62CDB40046CE7B /* DogInfo.swift in Sources */,
+				EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */,
+				EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */,
+				EC181E802B7BB7B700E5607B /* APIService.swift in Sources */,
+				EC8106F02B5A4B25006A2952 /* UserDefaultsKeys.swift in Sources */,
+				EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */,
+				EC12E4342B617EAD00EC5DF9 /* DogInfoViewController.swift in Sources */,
 				ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */,
+				EC8106EF2B5A4B25006A2952 /* UserInfo.swift in Sources */,
+				EC4BDCDB2B6BE86000F14872 /* Gender.swift in Sources */,
+				EC8106F22B5A4B25006A2952 /* DateFormat.swift in Sources */,
+				EC4BDCE22B6BF6E500F14872 /* DogInfoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC5E01492B623F7D0046CE7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECC50A4D2B44CF7400028428 /* DogRun */;
+			targetProxy = EC5E01482B623F7D0046CE7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ECC50A572B44CF7400028428 /* Main.storyboard */ = {
@@ -343,6 +499,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EC5E014A2B623F7D0046CE7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X37DLPQR73;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gglee.DogRunTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogRun.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogRun";
+			};
+			name = Debug;
+		};
+		EC5E014B2B623F7D0046CE7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X37DLPQR73;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gglee.DogRunTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogRun.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogRun";
+			};
+			name = Release;
+		};
 		ECC50A602B44CF7800028428 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -531,6 +733,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EC5E014C2B623F7D0046CE7B /* Build configuration list for PBXNativeTarget "DogRunTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC5E014A2B623F7D0046CE7B /* Debug */,
+				EC5E014B2B623F7D0046CE7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ECC50A492B44CF7400028428 /* Build configuration list for PBXProject "DogRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

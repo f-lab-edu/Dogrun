@@ -6,43 +6,38 @@
 //
 import UIKit
 import Alamofire
+import OSLog
 
-class UserInfoViewModel {
-    var userInfo: UserInfo
-    var responseData: ResponseLoginData?
-    var error: Error?
+
+final class UserInfoViewModel {
+   
     
-    init(userInfo: UserInfo) {
-        self.userInfo = userInfo
+    var persistenceService: APIService
+    
+    
+    init(persistenceService: APIService) {
+        self.persistenceService = persistenceService
     }
 
-    func submitResult(completion: @escaping (Error?) -> Void) {
-        let baseUrl = LocalizationKeys.baseUrl.localized
-        let apiUrl = "\(baseUrl)/UserEdit"
-        
-        let parameters: [String: Any] = [
-            "uid": userInfo.userId,
-            "name": userInfo.nickName,
-            "birth": userInfo.birth,
-            "area": userInfo.area,
-            "gender": userInfo.selectedGender
-        ]
-
-        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            switch response.result {
-            case .success:
-                do {
-                    self.responseData = try JSONDecoder().decode(ResponseLoginData.self, from: response.data!)
-                    completion(responseData)
-                } catch {
-                    self.error = error
-                    completion(error)
-                }
-
-            case .failure(let error):
-                self.error = error
-                completion(error)
+    func update(data: UserInfo, completion: @escaping (Bool) -> Void) {
+        Task {
+            do { 
+                let response = try await persistenceService.updateUserInfo(data: data)
+                guard let response else { return completion(false)}
+                
+                // 데이터 저장
+                let userRepository: UserRepository = UserDefaultsUserRepository()
+                userRepository.setUserInfo(userInfo: data)
+                completion(true)
+            } catch {
+                completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
             }
         }
+    }
+    
+    // 리턴코드 체크
+    private func isSuccessResponse(code: Int?) -> Bool {
+        guard let valid = code else { return false }
+        return valid == ResponseStatus.success.rawValue
     }
 }
