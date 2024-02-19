@@ -22,6 +22,7 @@ final class UserInfoViewController: UIViewController {
     private var captionArea: UILabel!
     private var selectArea: String?
     private lazy var selectedGender: String = ""
+    let numberOfComponents = 1
     
     // 닉네임 필드
     private let nicknameTextField = UITextField.makeTextField(placeholder: LocalizationKeys.tfNickname.rawValue.localized   )
@@ -139,7 +140,6 @@ final class UserInfoViewController: UIViewController {
         // UITextField에 UIDatePicker 연결
         birthdateTextField.inputView = datePicker
     }
-    
     private func updateUserInfo(data: UserInfo){
         viewModel?.update(data: data) { success in
             if success {
@@ -156,10 +156,10 @@ final class UserInfoViewController: UIViewController {
 extension UserInfoViewController: UIPickerViewDataSource{
     // UIPickerViewDataSource 구현
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return numberOfComponents
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-      // 지역의 수 반환
+        // 지역의 수 반환
         return sidoArea.count
     }
 }
