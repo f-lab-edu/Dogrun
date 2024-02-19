@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        URLProtocol.registerClass(MockURLProtocol.self)
+        //URLProtocol.registerClass(MockURLProtocol.self)
         // UIWindow 생성
         window = UIWindow(frame: UIScreen.main.bounds)
         // 초기 화면 설정

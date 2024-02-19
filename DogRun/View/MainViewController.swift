@@ -73,6 +73,11 @@ extension MainViewController{
         mainImageView.layer.shadowOpacity = 0.7
         mainImageView.layer.shadowRadius = 5
         mainImageView.layer.shadowColor = UIColor.gray.cgColor
+        mainImageView.isUserInteractionEnabled = true
+        
+        // UIImageView에 터치 제스처 추가
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        mainImageView.addGestureRecognizer(tapGesture)
         
         view.addSubview(mainImageView)
         mainImageView.snp.makeConstraints {
@@ -109,7 +114,7 @@ extension MainViewController{
 extension MainViewController{
      
     @objc func rightBarButtonTapped() {
-    // 오른쪽 아이콘 탭 시 동작할 내용
+        // 오른쪽 아이콘 탭 시 동작할 내용
         print("Right Bar Button Tapped")
     }
 
@@ -118,5 +123,20 @@ extension MainViewController{
         let selectedIndex = sender.selectedSegmentIndex
         let selectedDayOfWeek = sender.titleForSegment(at: selectedIndex) ?? ""
         print("Selected Day of Week: \(selectedDayOfWeek)")
+    }
+    
+    @objc func imageTapped() {
+        // 터치 이벤트가 발생하면 새로운 ViewController로 이동
+        let nextView = PhotoViewController()
+        nextView.delegate = self
+        present(nextView, animated: true, completion: nil)
+    }
+}
+
+
+extension MainViewController: PhotoViewControllerDelegate {
+    func didSelectImage(_ image: UIImage) {
+        OSLog.message(.debug, "check image: \(image)")
+        mainImageView.image = image // 선택한 이미지를 이미지뷰에 설정합니다.
     }
 }
