@@ -140,6 +140,7 @@ final class UserInfoViewController: UIViewController {
         // UITextField에 UIDatePicker 연결
         birthdateTextField.inputView = datePicker
     }
+    /// test
     private func updateUserInfo(data: UserInfo){
         viewModel?.update(data: data) { success in
             if success {
