@@ -105,5 +105,7 @@ extension MainViewController {
         // 선택된 세그먼트에 따라 다른 컨텐츠를 표시하는 로직 추가
         let selectedIndex = sender.selectedSegmentIndex
         let selectedDayOfWeek = sender.titleForSegment(at: selectedIndex) ?? ""
+        // 데이터 요청 추가 예정 (feature/retrive-walk-info)
+        OSLog.message(.debug, "\(selectedDayOfWeek)")
     }
 }

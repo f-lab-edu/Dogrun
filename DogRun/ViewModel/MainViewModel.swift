@@ -15,10 +15,18 @@ final class MainViewModel {
             do {
                 let response = try await persistenceService.retrieveData(data: uid)
                 guard let response else { return completion(false)}
+                saveLocal(dogData: response.dogData, userData: response.userData)
                 completion(true)
             } catch {
                 completion(false) // 네트워크 요청 실패를 클로저를 통해 외부에 알림
             }
         }
+    }
+    
+    // 데이터 저장
+    private func saveLocal(dogData: DogInfo,userData: UserInfo) {
+        let repository = UserDefaultsRepository()
+        repository.setDogInfo(dogInfo: dogData, keys: "dogInfos")
+        repository.setUserInfo(userInfo: userData, keys: "userInfos")
     }
 }

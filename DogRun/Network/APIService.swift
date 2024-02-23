@@ -18,8 +18,6 @@ class APIService {
             let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: data)
             guard Utils.isSuccessResponse(code: responseData.code) else { return nil }
             return responseData.data
-        } catch {
-            throw error
         }
     }
     // 유저 정보 업데이트
@@ -33,8 +31,6 @@ class APIService {
             let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: data)
             guard Utils.isSuccessResponse(code: responseData.code) else { return nil }
             return responseData.data
-        } catch {
-            throw error
         }
     }
     // 펫 정보 업데이트
@@ -48,8 +44,6 @@ class APIService {
             let responseData = try JSONDecoder().decode(ResponseDogInfoData.self, from: data)
             guard Utils.isSuccessResponse(code: responseData.code) else { return nil }
             return responseData.data
-        } catch {
-            throw error
         }
     }
     // 메인화면 정보 조회
@@ -63,8 +57,6 @@ class APIService {
             let responseData = try JSONDecoder().decode(ResponseMainData.self, from: data)
             guard Utils.isSuccessResponse(code: responseData.code) else { return nil }
             return responseData.data
-        } catch {
-            throw error
         }
     }
     func makeRequest<T: Encodable>(to url: URL, method: HTTPMethod, with data: T?)

@@ -37,6 +37,7 @@ final class UserInfoViewController: UIViewController {
         initVM()
     }
     private func initView() {
+        initTextField()
         initBgColor()
         initCaption()
         initGesture()
