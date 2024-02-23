@@ -1,0 +1,22 @@
+{
+    "code": 200,
+    "data": {
+        "userData": {
+            "uid": "987654321",
+            "email": "jane.doe@example.com",
+            "name": "Jane Doe",
+            "birth": "1990-01-01",
+            "area": "New York",
+            "gender": "남"
+        },
+        "dogData": {
+            "uid": "123456",
+            "name": "Buddy",
+            "breed": "Golden Retriever",
+            "birth": "2018-05-15",
+            "gender": "male",
+            "size": "large"
+        }
+    },
+    "msg": "Success"
+}

@@ -1,0 +1,12 @@
+{
+    "code": 200,
+    "data": {
+        "uid": "123456",
+        "name": "Buddy",
+        "breed": "Golden Retriever",
+        "birth": "2018-05-15",
+        "gender": "male",
+        "size": "large"
+    },
+    "msg": "Success"
+}

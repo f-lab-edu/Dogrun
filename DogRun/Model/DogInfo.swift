@@ -4,15 +4,11 @@
 //  DogRun
 //
 
-
 struct DogInfo: Codable {
-    
     var uid: String
     var name: String
     var breed: String
     var birth: String
     var gender: String
     var size: String
-    
 }
-
