@@ -4,8 +4,8 @@
 //
 //  Created by 이규관 on 2024/02/23.
 //
-
 import Foundation
+
 // 네트워크 매니저 스텁 클래스
 final class NetworkManagerStub: NetworkManagerProtocol {
     var testData: Data?

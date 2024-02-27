@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // 네트워크 매니저 프로토콜 정의
 protocol NetworkManagerProtocol {
     func fetchData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Data?)

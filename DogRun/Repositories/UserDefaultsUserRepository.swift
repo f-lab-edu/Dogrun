@@ -18,7 +18,7 @@ final class UserDefaultsRepository: UserRepository {
             let encodedData = try JSONEncoder().encode(userInfo)
             userDefaults.set(encodedData, forKey: keys)
         } catch {
-            OSLog.message(.debug, "Error encoding user info: \(error)")
+            OSLog.debug("Error encoding user info: \(error)")
         }
     }
     func getUserInfo(keys: String) -> UserInfo? {
@@ -37,7 +37,7 @@ final class UserDefaultsRepository: UserRepository {
             let encodedData = try JSONEncoder().encode(dogInfo)
             userDefaults.set(encodedData, forKey: keys)
         } catch {
-            OSLog.message(.debug, "Error encoding user info: \(error)")
+            OSLog.debug("Error encoding user info: \(error)")
         }
     }
     func getDogInfo(keys: String) -> DogInfo? {

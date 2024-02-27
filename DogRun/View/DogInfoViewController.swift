@@ -83,11 +83,11 @@ extension DogInfoViewController {
 // MARK: - init
 extension DogInfoViewController {
     private func initCaption() {
-        captionDogname = UILabel.custom(text: LabelKeys.labelDogName.rawValue.localized)
-        captionDogAge = UILabel.custom(text: LabelKeys.labelDogAge.rawValue.localized)
-        captionDogBreed = UILabel.custom(text: LabelKeys.labelDogBreed.rawValue.localized)
-        captionDogGender = UILabel.custom(text: LabelKeys.labelDogGender.rawValue.localized)
-        captionDogSize = UILabel.custom(text: LabelKeys.labelDogSize.rawValue.localized)
+        captionDogname = UILabel.custom(text: LabelKeys.Dog.name.rawValue.localized)
+        captionDogAge = UILabel.custom(text: LabelKeys.Dog.age.rawValue.localized)
+        captionDogBreed = UILabel.custom(text: LabelKeys.Dog.breed.rawValue.localized)
+        captionDogGender = UILabel.custom(text: LabelKeys.Dog.gender.rawValue.localized)
+        captionDogSize = UILabel.custom(text: LabelKeys.Dog.size.rawValue.localized)
     }
     private func initBgColor() {
         view.backgroundColor = .white
@@ -98,9 +98,9 @@ extension DogInfoViewController {
         view.addGestureRecognizer(tapGesture)
     }
     private func initTextField() {
-        dognameTextField = UITextField.custom(placeholder: TextFieldKeys.tfDogName.rawValue.localized )
-        dogBreedTextField = UITextField.custom(placeholder: TextFieldKeys.tfDogBreed.rawValue.localized )
-        dogAgeTextField = UITextField.custom(placeholder: TextFieldKeys.tfBirth.rawValue.localized )
+        dognameTextField = UITextField.custom(placeholder: TextFieldKeys.Dog.name.rawValue.localized )
+        dogBreedTextField = UITextField.custom(placeholder: TextFieldKeys.Dog.breed.rawValue.localized )
+        dogAgeTextField = UITextField.custom(placeholder: TextFieldKeys.User.birth.rawValue.localized )
     }
     private func initSegCtl() {
         genderSegmentedControl = UISegmentedControl(items: AppConstants.genderArray)
@@ -240,7 +240,7 @@ extension DogInfoViewController {
 extension DogInfoViewController {
     private func checkName() -> String? {
         guard let name = dognameTextField.text, !name.isEmpty else {
-            showAlert(message: AlertKeys.alertName.rawValue.localized)
+            showAlert(message: AlertKeys.name.rawValue.localized)
             return nil
         }
         return name
@@ -248,14 +248,14 @@ extension DogInfoViewController {
 
     private func checkBirth() -> String? {
         guard let birthdate = dogAgeTextField.text, !birthdate.isEmpty else {
-            showAlert(message: AlertKeys.alertBirth.rawValue.localized)
+            showAlert(message: AlertKeys.birth.rawValue.localized)
             return nil
         }
         return birthdate
     }
     private func checkBreed() -> String? {
         guard let breed = dogBreedTextField.text, !breed.isEmpty else {
-            showAlert(message: AlertKeys.alertBirth.rawValue.localized)
+            showAlert(message: AlertKeys.birth.rawValue.localized)
             return nil
         }
         return breed

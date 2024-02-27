@@ -17,9 +17,9 @@ final class UserInfoViewController: UIViewController {
     private var selectArea: String?
     private lazy var selectedGender: String = ""
     // 닉네임 필드
-    private let nicknameTextField = UITextField.custom(placeholder: TextFieldKeys.tfNickname.rawValue.localized )
+    private let nicknameTextField = UITextField.custom(placeholder: TextFieldKeys.User.name.rawValue.localized )
     // 생년월일 필드
-    private let birthdateTextField = UITextField.custom(placeholder: TextFieldKeys.tfBirth.rawValue.localized, inputView: UIDatePicker())
+    private let birthdateTextField = UITextField.custom(placeholder: TextFieldKeys.User.birth.rawValue.localized, inputView: UIDatePicker())
     // 성별 세그먼트
     private lazy var genderSegmentedControl = UISegmentedControl(items: AppConstants.genderArray)
     // 지역 picker
@@ -116,10 +116,10 @@ extension UserInfoViewController {
         birthdateTextField.inputView = datePicker
     }
     private func initCaption() {
-        captionNickname = UILabel.custom(text: LabelKeys.labelName.rawValue.localized) // 닉네임
-        captionBirth = UILabel.custom(text: LabelKeys.labelBirth.rawValue.localized) // 생년월일
-        captionGender = UILabel.custom(text: LabelKeys.labelGender.rawValue.localized) // 성별
-        captionArea = UILabel.custom(text: LabelKeys.labelArea.rawValue.localized) // 지역
+        captionNickname = UILabel.custom(text: LabelKeys.User.name.rawValue.localized) // 닉네임
+        captionBirth = UILabel.custom(text: LabelKeys.User.birth.rawValue.localized) // 생년월일
+        captionGender = UILabel.custom(text: LabelKeys.User.gender.rawValue.localized) // 성별
+        captionArea = UILabel.custom(text: LabelKeys.User.area.rawValue.localized) // 지역
     }
     private func initBgColor() {
         view.backgroundColor = .white
@@ -240,7 +240,7 @@ extension UserInfoViewController {
 extension UserInfoViewController {
     private func checkNickname() -> String? {
         guard let nickname = nicknameTextField.text, !nickname.isEmpty else {
-            showAlert(message: AlertKeys.alertName.rawValue.localized)
+            showAlert(message: AlertKeys.name.rawValue.localized)
             return nil
         }
         return nickname
@@ -248,14 +248,14 @@ extension UserInfoViewController {
 
     private func checkBirthdate() -> String? {
         guard let birthdate = birthdateTextField.text, !birthdate.isEmpty else {
-            showAlert(message: AlertKeys.alertBirth.rawValue.localized)
+            showAlert(message: AlertKeys.birth.rawValue.localized)
             return nil
         }
         return birthdate
     }
     private func checkArea() -> String? {
         guard selectArea!.isEmpty else {
-            showAlert(message: AlertKeys.alertArea.rawValue.localized)
+            showAlert(message: AlertKeys.area.rawValue.localized)
             return nil
         }
         return selectArea
