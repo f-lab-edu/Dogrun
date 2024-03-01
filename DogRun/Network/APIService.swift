@@ -17,7 +17,8 @@ class APIService {
             let data = try await URLSession.shared.data(for: request).0
             // 데아터 처리
             let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: data)
-            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } else { return nil }
+            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } 
+            else { return nil }
         }
     }
     
@@ -30,7 +31,8 @@ class APIService {
             let data = try await URLSession.shared.data(for: request).0
             // 데아터 처리
             let responseData = try JSONDecoder().decode(ResponseLoginData.self, from: data)
-            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } else { return nil }
+            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } 
+            else { return nil }
         }
     }
     
@@ -43,7 +45,8 @@ class APIService {
             let data = try await URLSession.shared.data(for: request).0
             // 데아터 처리
             let responseData = try JSONDecoder().decode(ResponseDogInfoData.self, from: data)
-            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } else { return nil }
+            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } 
+            else { return nil }
         }
     }
     
@@ -56,7 +59,8 @@ class APIService {
             let data = try await URLSession.shared.data(for: request).0
             // 데아터 처리
             let responseData = try JSONDecoder().decode(ResponseMainData.self, from: data)
-            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } else { return nil }
+            if Utils.isSuccessResponse(code: responseData.code) { return responseData.data } 
+            else { return nil }
         }
     }
     
