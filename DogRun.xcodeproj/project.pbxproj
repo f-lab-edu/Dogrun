@@ -24,9 +24,7 @@
 		EC14F7F82B87CAFC0041E1AF /* maininfo_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = EC14F7F72B87CAFC0041E1AF /* maininfo_mock.json */; };
 		EC14F7FA2B87CB260041E1AF /* doginfo_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = EC14F7F92B87CB260041E1AF /* doginfo_mock.json */; };
 		EC181E802B7BB7B700E5607B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E7C2B7BB7B700E5607B /* APIService.swift */; };
-		EC181E832B7BBDFB00E5607B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */; };
 		EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E862B7BF0CF00E5607B /* UserRepository.swift */; };
-		EC181E892B7BF0FA00E5607B /* UserDefaultsUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */; };
 		EC1DEE1B2B4772B000E8F4E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */; };
 		EC4188702B6C111700A9E649 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41886F2B6C111700A9E649 /* LoginViewModel.swift */; };
 		EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4188712B6C118D00A9E649 /* LoginInfo.swift */; };
@@ -37,8 +35,16 @@
 		EC4BDCE22B6BF6E500F14872 /* DogInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE12B6BF6E500F14872 /* DogInfoViewModel.swift */; };
 		EC4BDCE42B6BF7B900F14872 /* ResponseDogInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */; };
 		EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4BDCE62B6C008800F14872 /* Utils.swift */; };
-		EC5E014E2B6274CC0046CE7B /* DoginfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */; };
 		EC5E01502B62CDB40046CE7B /* DogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E014F2B62CDB40046CE7B /* DogInfo.swift */; };
+		EC5E6C932B91ED29002DEEC1 /* UserDefaultsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C922B91ED29002DEEC1 /* UserDefaultsRepositoryTests.swift */; };
+		EC5E6C952B91EDC3002DEEC1 /* APIEndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C942B91EDC3002DEEC1 /* APIEndpointType.swift */; };
+		EC5E6C972B92B7B7002DEEC1 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C962B92B7B6002DEEC1 /* UserDefaultsRepository.swift */; };
+		EC5E6C992B941E9A002DEEC1 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C982B941E9A002DEEC1 /* MainViewModelTests.swift */; };
+		EC5E6C9B2B95AC3B002DEEC1 /* OSLogMethodTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C9A2B95AC3B002DEEC1 /* OSLogMethodTest.swift */; };
+		EC5E6C9D2B95AE0C002DEEC1 /* APIEdnpointTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C9C2B95AE0C002DEEC1 /* APIEdnpointTypeTests.swift */; };
+		EC5E6C9F2B95B114002DEEC1 /* UIExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6C9E2B95B114002DEEC1 /* UIExtensionTest.swift */; };
+		EC5E6CA12B95C09B002DEEC1 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6CA02B95C09B002DEEC1 /* UtilsTests.swift */; };
+		EC5E6CA32B95C3F9002DEEC1 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E6CA22B95C3F9002DEEC1 /* LoginViewControllerTests.swift */; };
 		EC73D36F2B85E1D8009852A7 /* UIVewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC73D36E2B85E1D8009852A7 /* UIVewController+Extension.swift */; };
 		EC8106EC2B5A4B25006A2952 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106DD2B5A4B25006A2952 /* String+Extension.swift */; };
 		EC8106EF2B5A4B25006A2952 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106E12B5A4B25006A2952 /* UserInfo.swift */; };
@@ -49,6 +55,11 @@
 		EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */; };
 		EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */; };
 		EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */; };
+		ECAA8FE32B96F6FC007C6890 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE22B96F6FC007C6890 /* LoginViewModelTests.swift */; };
+		ECAA8FE52B96FC1C007C6890 /* UserInfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE42B96FC1B007C6890 /* UserInfoViewControllerTests.swift */; };
+		ECAA8FE72B96FF3E007C6890 /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE62B96FF3E007C6890 /* UserViewModelTests.swift */; };
+		ECAA8FE92B970D82007C6890 /* DogInfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE82B970D82007C6890 /* DogInfoViewControllerTests.swift */; };
+		ECAA8FEB2B970DF4007C6890 /* DogInfoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FEA2B970DF4007C6890 /* DogInfoViewModelTests.swift */; };
 		ECC50A522B44CF7400028428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A512B44CF7400028428 /* AppDelegate.swift */; };
 		ECC50A542B44CF7400028428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A532B44CF7400028428 /* SceneDelegate.swift */; };
 		ECC50A562B44CF7400028428 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC50A552B44CF7400028428 /* LoginViewController.swift */; };
@@ -94,9 +105,7 @@
 		EC14F7F72B87CAFC0041E1AF /* maininfo_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = maininfo_mock.json; sourceTree = "<group>"; };
 		EC14F7F92B87CB260041E1AF /* doginfo_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = doginfo_mock.json; sourceTree = "<group>"; };
 		EC181E7C2B7BB7B700E5607B /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		EC181E862B7BF0CF00E5607B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
-		EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUserRepository.swift; sourceTree = "<group>"; };
 		EC1DEE1A2B4772AF00E8F4E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3CFAE42B45E23A00D0F1A2 /* DogRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogRun.entitlements; sourceTree = "<group>"; };
 		EC41886F2B6C111700A9E649 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -109,8 +118,17 @@
 		EC4BDCE32B6BF7B900F14872 /* ResponseDogInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDogInfoData.swift; sourceTree = "<group>"; };
 		EC4BDCE62B6C008800F14872 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC5E01442B623F7D0046CE7B /* DogRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoginfoViewControllerTests.swift; sourceTree = "<group>"; };
 		EC5E014F2B62CDB40046CE7B /* DogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfo.swift; sourceTree = "<group>"; };
+		EC5E6C912B91ED29002DEEC1 /* DogRunTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DogRunTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC5E6C922B91ED29002DEEC1 /* UserDefaultsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepositoryTests.swift; sourceTree = "<group>"; };
+		EC5E6C942B91EDC3002DEEC1 /* APIEndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpointType.swift; sourceTree = "<group>"; };
+		EC5E6C962B92B7B6002DEEC1 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		EC5E6C982B941E9A002DEEC1 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		EC5E6C9A2B95AC3B002DEEC1 /* OSLogMethodTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogMethodTest.swift; sourceTree = "<group>"; };
+		EC5E6C9C2B95AE0C002DEEC1 /* APIEdnpointTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEdnpointTypeTests.swift; sourceTree = "<group>"; };
+		EC5E6C9E2B95B114002DEEC1 /* UIExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensionTest.swift; sourceTree = "<group>"; };
+		EC5E6CA02B95C09B002DEEC1 /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
+		EC5E6CA22B95C3F9002DEEC1 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		EC73D36E2B85E1D8009852A7 /* UIVewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVewController+Extension.swift"; sourceTree = "<group>"; };
 		EC8106DD2B5A4B25006A2952 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		EC8106E12B5A4B25006A2952 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -121,6 +139,11 @@
 		EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseLoginData.swift; sourceTree = "<group>"; };
+		ECAA8FE22B96F6FC007C6890 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		ECAA8FE42B96FC1B007C6890 /* UserInfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewControllerTests.swift; sourceTree = "<group>"; };
+		ECAA8FE62B96FF3E007C6890 /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
+		ECAA8FE82B970D82007C6890 /* DogInfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfoViewControllerTests.swift; sourceTree = "<group>"; };
+		ECAA8FEA2B970DF4007C6890 /* DogInfoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfoViewModelTests.swift; sourceTree = "<group>"; };
 		ECC50A4E2B44CF7400028428 /* DogRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC50A512B44CF7400028428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC50A532B44CF7400028428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,8 +237,8 @@
 			children = (
 				EC14F7E22B87C1F60041E1AF /* Mock */,
 				EC0DC8E32B854E4800C0C731 /* HTTPMethod.swift */,
+				EC5E6C942B91EDC3002DEEC1 /* APIEndpointType.swift */,
 				EC181E7C2B7BB7B700E5607B /* APIService.swift */,
-				EC181E822B7BBDFB00E5607B /* APIEndpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -223,8 +246,8 @@
 		EC181E852B7BF05200E5607B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				EC5E6C962B92B7B6002DEEC1 /* UserDefaultsRepository.swift */,
 				EC181E862B7BF0CF00E5607B /* UserRepository.swift */,
-				EC181E882B7BF0FA00E5607B /* UserDefaultsUserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -240,7 +263,19 @@
 		EC5E01452B623F7D0046CE7B /* DogRunTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC5E014D2B6274CC0046CE7B /* DoginfoViewControllerTests.swift */,
+				ECAA8FEA2B970DF4007C6890 /* DogInfoViewModelTests.swift */,
+				ECAA8FE82B970D82007C6890 /* DogInfoViewControllerTests.swift */,
+				ECAA8FE62B96FF3E007C6890 /* UserViewModelTests.swift */,
+				ECAA8FE42B96FC1B007C6890 /* UserInfoViewControllerTests.swift */,
+				ECAA8FE22B96F6FC007C6890 /* LoginViewModelTests.swift */,
+				EC5E6CA22B95C3F9002DEEC1 /* LoginViewControllerTests.swift */,
+				EC5E6CA02B95C09B002DEEC1 /* UtilsTests.swift */,
+				EC5E6C9E2B95B114002DEEC1 /* UIExtensionTest.swift */,
+				EC5E6C9C2B95AE0C002DEEC1 /* APIEdnpointTypeTests.swift */,
+				EC5E6C9A2B95AC3B002DEEC1 /* OSLogMethodTest.swift */,
+				EC5E6C982B941E9A002DEEC1 /* MainViewModelTests.swift */,
+				EC5E6C922B91ED29002DEEC1 /* UserDefaultsRepositoryTests.swift */,
+				EC5E6C912B91ED29002DEEC1 /* DogRunTests-Bridging-Header.h */,
 			);
 			path = DogRunTests;
 			sourceTree = "<group>";
@@ -407,6 +442,7 @@
 				TargetAttributes = {
 					EC5E01432B623F7D0046CE7B = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 						TestTargetID = ECC50A4D2B44CF7400028428;
 					};
 					ECC50A4D2B44CF7400028428 = {
@@ -525,7 +561,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC5E014E2B6274CC0046CE7B /* DoginfoViewControllerTests.swift in Sources */,
+				EC5E6C9B2B95AC3B002DEEC1 /* OSLogMethodTest.swift in Sources */,
+				ECAA8FE72B96FF3E007C6890 /* UserViewModelTests.swift in Sources */,
+				EC5E6C9D2B95AE0C002DEEC1 /* APIEdnpointTypeTests.swift in Sources */,
+				ECAA8FEB2B970DF4007C6890 /* DogInfoViewModelTests.swift in Sources */,
+				ECAA8FE92B970D82007C6890 /* DogInfoViewControllerTests.swift in Sources */,
+				EC5E6C932B91ED29002DEEC1 /* UserDefaultsRepositoryTests.swift in Sources */,
+				ECAA8FE52B96FC1C007C6890 /* UserInfoViewControllerTests.swift in Sources */,
+				EC5E6CA32B95C3F9002DEEC1 /* LoginViewControllerTests.swift in Sources */,
+				ECAA8FE32B96F6FC007C6890 /* LoginViewModelTests.swift in Sources */,
+				EC5E6C992B941E9A002DEEC1 /* MainViewModelTests.swift in Sources */,
+				EC5E6C9F2B95B114002DEEC1 /* UIExtensionTest.swift in Sources */,
+				EC5E6CA12B95C09B002DEEC1 /* UtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,12 +590,11 @@
 				EC14F7F02B87C8AA0041E1AF /* NetworkManagerStub.swift in Sources */,
 				ECD3BB082B885ACF002DA286 /* EtcKeys.swift in Sources */,
 				EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */,
+				EC5E6C972B92B7B7002DEEC1 /* UserDefaultsRepository.swift in Sources */,
 				EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */,
 				ECD3BB022B885A61002DA286 /* TextFieldKeys.swift in Sources */,
-				EC181E832B7BBDFB00E5607B /* APIEndpoint.swift in Sources */,
 				EC4BDCDD2B6BEAE600F14872 /* AppConstants.swift in Sources */,
 				EC8106F32B5A4B25006A2952 /* LayoutConstants.swift in Sources */,
-				EC181E892B7BF0FA00E5607B /* UserDefaultsUserRepository.swift in Sources */,
 				EC73D36F2B85E1D8009852A7 /* UIVewController+Extension.swift in Sources */,
 				EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */,
 				EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */,
@@ -563,6 +609,7 @@
 				EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */,
 				EC181E802B7BB7B700E5607B /* APIService.swift in Sources */,
 				EC0DC8EB2B854EB100C0C731 /* ResponseData.swift in Sources */,
+				EC5E6C952B91EDC3002DEEC1 /* APIEndpointType.swift in Sources */,
 				EC14F7F22B87C8D40041E1AF /* APIServiceStub.swift in Sources */,
 				EC8106F02B5A4B25006A2952 /* UserDefaultsKeys.swift in Sources */,
 				ECD3BB062B885A75002DA286 /* AlertKeys.swift in Sources */,
@@ -621,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X37DLPQR73;
@@ -634,6 +682,8 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DogRunTests/DogRunTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogRun.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogRun";
@@ -644,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X37DLPQR73;
@@ -657,6 +708,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DogRunTests/DogRunTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogRun.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogRun";

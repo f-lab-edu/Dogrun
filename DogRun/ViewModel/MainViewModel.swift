@@ -24,7 +24,7 @@ final class MainViewModel {
     }
     
     // 데이터 저장
-    private func saveLocal(dogData: DogInfo,userData: UserInfo) {
+    func saveLocal(dogData: DogInfo,userData: UserInfo) {
         let repository = UserDefaultsRepository()
         repository.setDogInfo(dogInfo: dogData, keys: "dogInfos")
         repository.setUserInfo(userInfo: userData, keys: "userInfos")

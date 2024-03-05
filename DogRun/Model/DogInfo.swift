@@ -14,36 +14,36 @@ struct DogInfo: Codable {
     var size: String
     
     // 빌더 구조체
-    struct Builder {
+    class Builder {
         
-        private var dogInfo: DogInfo = DogInfo(uid: "", name: "", breed: "", birth: "", gender: .etc, size: "")
+        private var dogInfo = DogInfo(uid: "", name: "", breed: "", birth: "", gender: .etc, size: "")
          
-        mutating func setUID(_ uid: String) -> Builder {
+        func setUID(_ uid: String) -> Builder {
             dogInfo.uid = uid
             return self
         }
          
-        mutating func setName(_ name: String) -> Builder {
+        func setName(_ name: String) -> Builder {
             dogInfo.name = name
             return self
         }
         
-        mutating func setBreed(_ breed: String) -> Builder {
+        func setBreed(_ breed: String) -> Builder {
             dogInfo.breed = breed
             return self
         }
         
-        mutating func setBirth(_ birth: String) -> Builder {
+        func setBirth(_ birth: String) -> Builder {
             dogInfo.birth = birth
             return self
         }
         
-        mutating func setGender(_ gender: Gender) -> Builder {
+        func setGender(_ gender: Gender) -> Builder {
             dogInfo.gender = gender
             return self
         }
         
-        mutating func setSize(_ size: String) -> Builder {
+        func setSize(_ size: String) -> Builder {
             dogInfo.size = size
             return self
         }

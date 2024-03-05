@@ -12,34 +12,40 @@ struct UserInfo: Codable {
     var name: String
     var birth: String
     var area: String
+    var gender: Gender
     
     // 빌더 구조체
-    struct Builder {
+    class Builder {
         
-        private var userInfo: UserInfo = UserInfo(uid: "", email: "", name: "", birth: "", area: "")
+        private var userInfo: UserInfo = UserInfo(uid: "", email: "", name: "", birth: "", area: "", gender: .etc)
          
-        mutating func setUID(_ uid: String) -> Builder {
+        func setUID(_ uid: String) -> Builder {
             userInfo.uid = uid
             return self
         }
         
-        mutating func setEmail(_ email: String) -> Builder {
+        func setEmail(_ email: String) -> Builder {
             userInfo.email = email
             return self
         }
         
-        mutating func setName(_ name: String) -> Builder {
+        func setName(_ name: String) -> Builder {
             userInfo.name = name
             return self
         }
         
-        mutating func setBirth(_ birth: String) -> Builder {
+        func setBirth(_ birth: String) -> Builder {
             userInfo.birth = birth
             return self
         }
         
-        mutating func setArea(_ area: String) -> Builder {
+        func setArea(_ area: String) -> Builder {
             userInfo.area = area
+            return self
+        }
+        
+        func setGender(_ gender: Gender) -> Builder {
+            userInfo.gender = gender
             return self
         }
         
