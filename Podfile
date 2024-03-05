@@ -6,6 +6,7 @@ target 'DogRun' do
   use_frameworks!
   pod 'SnapKit'
   pod 'Alamofire', '~> 5.4'
+  pod 'SwiftLint'
   # Pods for DogRun
 
 

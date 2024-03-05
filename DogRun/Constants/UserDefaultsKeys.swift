@@ -6,5 +6,5 @@
 //
 
 enum UserDefaultsKeys: String {
-    case userInfo = "userInfo"
+    case userInfo
 }

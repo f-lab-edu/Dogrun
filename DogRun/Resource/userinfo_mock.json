@@ -1,0 +1,12 @@
+{
+    "code": 200,
+    "data": {
+        "uid": "987654321",
+        "email": "jane.doe@example.com",
+        "name": "Jane Doe",
+        "birth": "1990-01-01",
+        "area": "New York",
+        "gender": "female"
+    },
+    "msg": "Success"
+}
