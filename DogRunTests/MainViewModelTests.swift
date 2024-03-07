@@ -26,21 +26,21 @@ final class MainViewModelTests: XCTestCase {
         
         // given
         let userInfo = UserInfo.Builder()
-            .setUID("12345")
-            .setEmail("example@example.com")
-            .setName("John Doe")
-            .setBirth("1990-01-01")
-            .setArea("New York")
-            .setGender(.male)
+            .uid("12345")
+            .email("example@example.com")
+            .name("John Doe")
+            .birth("1990-01-01")
+            .area("New York")
+            .gender(.male)
             .build()
         
         let dogInfo = DogInfo.Builder()
-            .setUID("12345")
-            .setName("Buddy")
-            .setBirth("1990-01-01")
-            .setBreed("golden")
-            .setSize("M")
-            .setGender(.male)
+            .uid("12345")
+            .name("Buddy")
+            .birth("1990-01-01")
+            .breed("golden")
+            .size("M")
+            .gender(.male)
             .build()
         
         // when

@@ -61,7 +61,14 @@ final class DogInfoViewController: UIViewController {
               let breed = checkBreed() else { return nil }
         let dogGender = AppConstants.genderArray[genderSegmentedControl.selectedSegmentIndex]
         let dogSize = AppConstants.sizeArray[sizeSegmentedControl.selectedSegmentIndex]
-        let dogInfo = DogInfo(uid: userId, name: name, breed: breed, birth: birth, gender: .etc, size: dogSize)
+        let dogInfo = DogInfo.Builder()
+            .uid(userId)
+            .name(name)
+            .birth(birth)
+            .breed(breed)
+            .size(dogSize)
+            .gender(.etc)
+            .build()
         return dogInfo
     }
 }

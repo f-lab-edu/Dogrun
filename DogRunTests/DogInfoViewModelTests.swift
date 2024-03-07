@@ -25,12 +25,12 @@ final class DogInfoViewModelTests: XCTestCase {
         
         // given
         let dogInfo = DogInfo.Builder()
-            .setUID("12345")
-            .setName("Buddy")
-            .setBirth("1990-01-01")
-            .setBreed("golden")
-            .setSize("M")
-            .setGender(.male)
+            .uid("12345")
+            .name("Buddy")
+            .birth("1990-01-01")
+            .breed("golden")
+            .size("M")
+            .gender(.male)
             .build()
         
         // when
@@ -48,12 +48,12 @@ final class DogInfoViewModelTests: XCTestCase {
         
         // given
         let dogInfo = DogInfo.Builder()
-            .setUID("12345")
-            .setName("Buddy")
-            .setBirth("1990-01-01")
-            .setBreed("golden")
-            .setSize("M")
-            .setGender(.male)
+            .uid("12345")
+            .name("Buddy")
+            .birth("1990-01-01")
+            .breed("golden")
+            .size("M")
+            .gender(.male)
             .build()
         
         // when

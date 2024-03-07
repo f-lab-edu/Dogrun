@@ -39,12 +39,12 @@ final class LoginViewModelTests: XCTestCase {
         
         // given
         let userInfo = UserInfo.Builder()
-            .setUID("12345")
-            .setEmail("example@example.com")
-            .setName("John Doe")
-            .setBirth("1990-01-01")
-            .setArea("New York")
-            .setGender(.male)
+            .uid("12345")
+            .email("example@example.com")
+            .name("John Doe")
+            .birth("1990-01-01")
+            .area("New York")
+            .gender(.male)
             .build()
         
         // when
