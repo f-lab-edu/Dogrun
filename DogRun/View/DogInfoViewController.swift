@@ -110,7 +110,8 @@ extension DogInfoViewController {
         btnSubmit = UIButton.custom(target: self, action: #selector(tapSubmitBtn))
     }
     private func initVM() {
-        viewModel = DogInfoViewModel(persistenceService: APIService())
+        viewModel = DogInfoViewModel(persistenceService: APIService(),
+                                     userDefaultService: DogInfoService())
     }
 }
 

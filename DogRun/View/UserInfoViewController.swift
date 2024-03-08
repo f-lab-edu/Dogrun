@@ -135,7 +135,8 @@ extension UserInfoViewController {
         locationPickerView.delegate = self
     }
     private func initVM() {
-        viewModel = UserInfoViewModel(persistenceService:  APIService())
+        viewModel = UserInfoViewModel(persistenceService: APIService(),
+                                      userDefaultService: UserInfoService())
     }
 }
 
