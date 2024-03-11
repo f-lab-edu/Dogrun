@@ -26,7 +26,7 @@ final class DogInfoViewModel {
         }
     }
     // 데이터 저장
-    private func saveLocal(data: DogInfo) {
+    func saveLocal(data: DogInfo) {
         let repository = UserDefaultsRepository()
         repository.setDogInfo(dogInfo: data, keys: "dogInfos")
     }

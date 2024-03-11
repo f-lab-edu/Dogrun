@@ -26,7 +26,7 @@ final class UserInfoViewModel {
         }
     }
     // 데이터 저장
-    private func saveLocal(data: UserInfo) {
+    func saveLocal(data: UserInfo) {
         let userRepository = UserDefaultsRepository()
         userRepository.setUserInfo(userInfo: data, keys: "userInfos")
     }
