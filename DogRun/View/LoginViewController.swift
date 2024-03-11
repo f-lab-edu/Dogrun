@@ -25,7 +25,8 @@ final class LoginViewController: UIViewController {
         layout()
         initView()
     }
-    private func signIn(data: LoginInfo) {
+    
+    func signIn(data: LoginInfo) {
         viewModel?.signIn(data: data) { success in
             if success {
                 OSLog.message(.default, "sign in done")

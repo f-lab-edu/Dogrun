@@ -66,7 +66,14 @@ final class UserInfoViewController: UIViewController {
               let birthdate = checkBirthdate(),
               let area = checkArea() else { return nil }
         selectedGender = AppConstants.genderArray[genderSegmentedControl.selectedSegmentIndex]
-        let userInfo = UserInfo(uid: userId, email: "", name: nickname, birth: birthdate, area: area, gender: Gender(rawValue: selectedGender)!)
+        let userInfo = UserInfo.Builder()
+            .uid(userId)
+            .email("")
+            .name(nickname)
+            .birth(birthdate)
+            .area(area)
+            .gender(Gender(rawValue: selectedGender)!)
+            .build()
         return userInfo
     }
 }
