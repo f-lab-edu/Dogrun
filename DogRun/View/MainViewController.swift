@@ -50,7 +50,8 @@ extension MainViewController {
     private func initVM() {
         let stub = NetworkManagerStub()
         stub.setTestData(from: "maininfo_mock")
-        viewModel = MainViewModel(persistenceService: APIServiceStub(networkManager: stub))
+        viewModel = MainViewModel(persistenceService: APIServiceStub(networkManager: stub),
+                                  userDefaultService: MainInfoService())
     }
     private func initBackground() {
         self.view.backgroundColor = .white
