@@ -55,6 +55,8 @@
 		EC8106F62B5A4B25006A2952 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */; };
 		EC8106F82B5A4B8E006A2952 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */; };
 		EC8106FF2B5A4D94006A2952 /* ResponseLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */; };
+		EC978AED2B9F1D3B003B090E /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC978AEC2B9F1D3B003B090E /* WalkViewController.swift */; };
+		EC978AEF2B9F1DBB003B090E /* CoreMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC978AEE2B9F1DBB003B090E /* CoreMotionService.swift */; };
 		ECAA8FE32B96F6FC007C6890 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE22B96F6FC007C6890 /* LoginViewModelTests.swift */; };
 		ECAA8FE52B96FC1C007C6890 /* UserInfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE42B96FC1B007C6890 /* UserInfoViewControllerTests.swift */; };
 		ECAA8FE72B96FF3E007C6890 /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA8FE62B96FF3E007C6890 /* UserViewModelTests.swift */; };
@@ -139,6 +141,8 @@
 		EC8106EB2B5A4B25006A2952 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		EC8106FE2B5A4D94006A2952 /* ResponseLoginData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseLoginData.swift; sourceTree = "<group>"; };
+		EC978AEC2B9F1D3B003B090E /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
+		EC978AEE2B9F1DBB003B090E /* CoreMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionService.swift; sourceTree = "<group>"; };
 		ECAA8FE22B96F6FC007C6890 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		ECAA8FE42B96FC1B007C6890 /* UserInfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewControllerTests.swift; sourceTree = "<group>"; };
 		ECAA8FE62B96FF3E007C6890 /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				ECC50A552B44CF7400028428 /* LoginViewController.swift */,
 				EC8106F72B5A4B8E006A2952 /* UserInfoViewController.swift */,
 				EC12E4332B617EAD00EC5DF9 /* DogInfoViewController.swift */,
+				EC978AEC2B9F1D3B003B090E /* WalkViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4BDCE62B6C008800F14872 /* Utils.swift */,
+				EC978AEE2B9F1DBB003B090E /* CoreMotionService.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				ECD3BB082B885ACF002DA286 /* EtcKeys.swift in Sources */,
 				EC4BDCE72B6C008800F14872 /* Utils.swift in Sources */,
 				EC5E6C972B92B7B7002DEEC1 /* UserDefaultsRepository.swift in Sources */,
+				EC978AED2B9F1D3B003B090E /* WalkViewController.swift in Sources */,
 				EC181E872B7BF0CF00E5607B /* UserRepository.swift in Sources */,
 				ECD3BB022B885A61002DA286 /* TextFieldKeys.swift in Sources */,
 				EC4BDCDD2B6BEAE600F14872 /* AppConstants.swift in Sources */,
@@ -605,6 +612,7 @@
 				EC8106F42B5A4B25006A2952 /* ResponseStatus.swift in Sources */,
 				ECD3BB042B885A6B002DA286 /* ButtonKeys.swift in Sources */,
 				EC14F7EE2B87C87B0041E1AF /* NetworkManagerProtocol.swift in Sources */,
+				EC978AEF2B9F1DBB003B090E /* CoreMotionService.swift in Sources */,
 				ECD3BB002B885A50002DA286 /* LabelKeys.swift in Sources */,
 				EC4188722B6C118D00A9E649 /* LoginInfo.swift in Sources */,
 				EC181E802B7BB7B700E5607B /* APIService.swift in Sources */,
