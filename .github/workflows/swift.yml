@@ -1,0 +1,20 @@
+name: Swift
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    
+    - uses: actions/checkout@v3
+
+    - name: Run tests
+      run: |
+          pod install --repo-update --clean-install --project-directory=DogRun/
+          xcodebuild clean test -workspace DogRun/DogRun.xcworkspace -scheme DogRun -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
+
